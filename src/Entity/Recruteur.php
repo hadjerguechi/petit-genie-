@@ -4,9 +4,11 @@ namespace App\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\RecruteurRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
- * 
+ * @UniqueEntity("contactemail")
  * @ORM\Entity(repositoryClass=RecruteurRepository::class)
  */
 class Recruteur
@@ -56,7 +58,7 @@ class Recruteur
     private $contactname;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, unique=true)
      * @Assert\Email(
      *     message = "L'e-mail '{{ value }}' n'est pas valide."
      * )
@@ -79,7 +81,7 @@ class Recruteur
      *      maxMessage = "Le numero de téléphone ne peut être superieur à 20 caractères",
      * )
      * @Assert\Regex(
-     *       pattern="/^\(0\)[0-9]*$", 
+     *       pattern="/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/", 
      *       message="Format invalide"
      * )
      * @Assert\NotBlank(message = "Merci de renseigner un numéro de téléphone")
