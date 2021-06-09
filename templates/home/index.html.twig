@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<div>
+    <p>
+        {% for candidat in candidats %}
+            {{ candidat.firstname }} : 
+            {{ candidat.tel }}
+        {% endfor %}
+    </p>
+</div>
+{% endblock %}

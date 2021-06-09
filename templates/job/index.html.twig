@@ -1,16 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RecruteurController!{% endblock %}
+{% block title %}Hello JobController!{% endblock %}
 
 {% block body %}
-<div class="">
+<div>
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
+    {{ form_row(form.missiontitle)}}
+    {{ form_row(form.type)}}
     {{ form_row(form.companyname)}}
-    {{ form_row(form.contactname)}}
     {{ form_row(form.description)}}
-    {{ form_row(form.contactemail)}}
-    {{ form_row(form.phonenumber)}}
     <button type="submit"> Envoyer</button>
     {{form_end(form)}}
-</div>
 {% endblock %}
