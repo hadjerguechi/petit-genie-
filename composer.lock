@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "d57535c0e0fc195cfd949de6e88ffebc",
-=======
-    "content-hash": "ba4f1fb1029a6c80867205501f8a2432",
->>>>>>> 79623bb779d90b249d5d9f8177c6f5b4fd825ba5
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -7131,12 +7127,9 @@
                 "extra",
                 "twig"
             ],
-<<<<<<< HEAD
-=======
             "support": {
                 "source": "https://github.com/twigphp/twig-extra-bundle/tree/v3.3.1"
             },
->>>>>>> 79623bb779d90b249d5d9f8177c6f5b4fd825ba5
             "funding": [
                 {
                     "url": "https://github.com/fabpot",
