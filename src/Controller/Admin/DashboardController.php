@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Candidat;
 use App\Controller\Admin\CandidatCrudController;
+use App\Entity\Job;
+use App\Entity\Recruteur;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -33,7 +35,9 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToRoute('Back to the website', 'fa fa-home','home');
-        yield MenuItem::linkToCrud('candidat', 'fas fa-user-friends', Candidat::class);
+        yield MenuItem::linkToRoute('Retour sur le site', 'fa fa-home','home');
+        yield MenuItem::linkToCrud('Candidat', 'fas fa-user-friends', Candidat::class);
+        yield MenuItem::linkToCrud('Recruteur', 'fas fa-user-tie', Recruteur::class);
+        yield MenuItem::linkToCrud('Job', 'fas fa-briefcase', Job::class);
     }
 }
