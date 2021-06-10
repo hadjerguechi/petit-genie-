@@ -14,10 +14,10 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        $candidats = $this->getDoctrine()
-            ->getRepository('App:Candidat')->findAll();
+       // $candidats = $this->getDoctrine()
+         //   ->getRepository('App:Candidat')->findAll();
         return $this->render('home/index.html.twig', [
-            'candidats' => $candidats,
+         //   'candidats' => $candidats,
         ]);
     }
 }

@@ -1,14 +1,276 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
-<div>
-    <p>
-        {% for candidat in candidats %}
-            {{ candidat.firstname }} : 
-            {{ candidat.tel }}
-        {% endfor %}
-    </p>
-</div>
+    <div class="container-fluid" id="navbar">
+        <header>
+            <div class="container">
+              <div class="navbar">
+                  <div class="menu-toggle">
+                    <div class="hamburger"></div>
+                  </div>
+                  <a class="navbar-brand" href="#" id="logo">
+                      <img src="assets/images/logo.svg"  class="img-fluid" alt="logo little genius">
+                  </a>
+                  
+                  <nav class="navigation">
+                    <ul class="nav">
+                      <li class="nav-item mon-nav">
+                        <a class="nav-link" href="#">Recruteur</a>
+                      </li>
+                      <li class="nav-item mon-nav">
+                        <a class="nav-link"  href="#">Trouve un job</a>
+                      </li>
+                      <li class="nav-item mon-nav">
+                        <a class="nav-link" href="#">L'équipe</a>
+                      </li>
+                    </ul>
+                  </nav>
+  
+                  <div class="container-nav-droit">
+                    <a href="#" class="mon-btn-border btn-recruteur">
+                        Recruteur 
+                      </a>
+                      <a href="#" class="mon-btn btn-connecter">
+                        Se connecter
+                      </a>
+                  </div>
+  
+                </div>
+            </div>
+          </header>
+      </div>
+
+      <!--- LE CONTENU PRINCIPAL -->
+      <main>
+        <!-- section hero -->
+        <section class="hero">
+          <div class="container">
+            <div class="row mon-d-flex-between">
+              <div class="gauche col-12 col-sm-12 col-md-12 col-lg-6">
+                <h1 class="main-titre">Trouvez l’emploi qui vous convient</h1>
+                <p class="text-hero">
+                  Lorem ipsum dolor sit amet, consectetur 
+                  Finis  de trouver un stage/une mission, Little genius vous 
+                  facilite …
+                </p>
+                
+                <div class="container-search">
+                  <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="PHP, Vue.js, JavaScript,…" aria-label="Search">
+                    <button class="btn mon-btn btn-lancer" type="submit"><i class="mon-i fas fa-search"></i> &nbsp; Se lancer !</button>
+                  </form>
+                </div>
+
+                <div class="container-pastille">
+                  <span class="span-langage">PHP</span>
+                  <span class="span-langage">JAVASCRIPT</span>
+                  <span class="span-langage">SYMFONY</span>
+                  <span class="span-langage">VUE.JS</span>
+                </div>
+
+              </div>
+
+              <div class="droit col-12 col-sm-12 col-md-12 col-lg-6">
+                <img src="assets/images/dev-junior.jpg" alt="développeur juniors" class="img-responsive  image-dev-junior">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- section explication -->
+        <section class="explication">
+          <div class="container">
+            <div class="row">
+              <div class="text-center title-section col-12 col-sm-12 col-md-12 col-lg-12">
+                <h2>Explications du services</h2>
+                <p class="text-content col-5">
+                  Lorem ipsum dolor sit amet, consectetur 
+                  Finis  de trouver un stage/une mission, Little genius vous 
+                  facilite
+                </p>
+              </div>
+            </div>
+
+            <div class="row container-blocs-explication">
+              <div class="h-100 col-12 col-sm-12 col-md-12 col-lg-3">
+                <div class="bloc-explication"></div>
+              </div>
+              <div class="h-100 col-12 col-sm-12 col-md-12 col-lg-3">
+                <div class="bloc-explication"></div>
+              </div>
+              <div class="h-100 col-12 col-sm-12 col-md-12 col-lg-3">
+                <div class="bloc-explication"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- section genius du mois -->
+        <section class="genius-mois">
+          <div class="container">
+            <div class="row">
+              <div class="text-center title-section col-12 col-sm-12 col-md-12 col-lg-12">
+                <h2>Les genius du mois</h2>
+                <p class="text-content col-5">
+                  Lorem ipsum dolor sit amet, consectetur 
+                  Finis  de trouver un stage/une mission, Little genius vous 
+                  facilite
+                </p>
+              </div>
+            </div>
+
+            <div class="row container-blocs-genius-mois">
+              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                <div class="blocs-genius-mois"></div>
+                <h3>Développeur Back-End</h3>
+              </div>
+              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                <div class="blocs-genius-mois"></div>
+                <h3>Développeur Front-End</h3>
+              </div>
+              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                <div class="blocs-genius-mois"></div>
+                <h3>Product Designer</h3>
+              </div>
+              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                <div class="blocs-genius-mois"></div>
+                <h3>Développeur Symfony</h3>
+              </div>
+              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                <div class="blocs-genius-mois"></div>
+                <h3>Intégrateur Web</h3>
+              </div>
+              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                <div class="blocs-genius-mois"></div>
+                <h3>Développeur Java</h3>
+              </div>
+              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                <div class="blocs-genius-mois"></div>
+                <h3>Développeur Mobile</h3>
+              </div>
+              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                <div class="blocs-genius-mois"></div>
+                <h3>Data Scientist</h3>
+              </div>
+              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                <div class="blocs-genius-mois"></div>
+                <h3>UI Designer</h3>
+              </div>
+              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                <div class="blocs-genius-mois"></div>
+                <h3>Développeur Back-End</h3>
+              </div>
+              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                <div class="blocs-genius-mois"></div>
+                <h3>Développeur Back-End</h3>
+              </div>
+              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                <div class="blocs-genius-mois"></div>
+                <h3>Développeur Back-End</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- section rejoignez-nous -->
+        <section class="rejoignez">
+          <div class="container">
+            <div class="row">
+              <div class="text-center title-section col-12 col-sm-12 col-md-12 col-lg-12">
+                <h2>Les genius du mois</h2>
+                <p class="text-content col-12 col-sm-12 col-md-12 col-lg-5">
+                  Lorem ipsum dolor sit amet, consectetur 
+                  Finis  de trouver un stage/une mission, Little genius vous 
+                  facilite
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="container-rejoignez col-12 col-sm-12 col-md-12 col-lg-6"></div>
+              
+            </div>
+          </div>
+        </section>
+
+        <!-- section Inscris-toi -->
+        <section class="explication">
+          <div class="container">
+            <div class="row">
+              <div class="text-center title-section col-12 col-sm-12 col-md-12 col-lg-12">
+                <h2>Abonne-toi en 1 clic </h2>
+                <p class="text-content col-5">
+                  Reçois directement des offres personnalisés que pour toi
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="container-abonne col-12 col-sm-12 col-md-12 col-lg-6">
+                <form class="d-flex">
+                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="geoffrey@example.com">
+                  <button class="btn mon-btn btn-lancer" type="submit"><i class="far mon-i fa-envelope"></i> &nbsp; Abonne-toi !</button>
+                </form>
+              </div>
+              
+            </div>
+
+        </section>
+      
+      </main>
+
+      <!--LE FOOTER-->
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+              <a class="navbar-brand" href="#" id="logo">
+                <img src="assets/images/logo-blanc.svg"  class="img-fluid" alt="logo blanc lgenius">
+              </a>
+              <p class="description-footer">
+                Lorem ipsum dolor sit amet, ipsum dolor sit consectetur 
+              </p>
+
+              <div class="div-social">
+                <a class="social-bouton" href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="social-bouton" href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a class="social-bouton" href="#">
+                  <i class="fab fa-instagram-square"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4"> 
+              <ul class="footer-ul">
+                <span>À PROPOS</span>
+                <li>l'Équipe</li>
+                <li>Partenariats offres</li>
+                <li>Offres de stage</li>
+                <li>Nous rejoindre</li>
+                <li>Nous rencontrer</li>
+              </ul>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+              <ul class="footer-ul">
+                <span>COMMENT ÇA MARCHE ?</span>
+                <li>Offres de stage</li>
+                <li>Offres d'emploi</li>
+                <li>Partenariats offres</li>
+                <li>Nos salons</li>
+                <li>Déposer son CV</li>
+                <li>FAQ</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+      <div class="copyright">
+        <p>© Little genius. Tous droits réservés. </p>
+      </div>
 {% endblock %}
