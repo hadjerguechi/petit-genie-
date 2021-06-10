@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello JobController!{% endblock %}
+
+{% block body %}
+<div>
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
+    {{ form_row(form.missiontitle)}}
+    {{ form_row(form.type)}}
+    {{ form_row(form.companyname)}}
+    {{ form_row(form.description)}}
+    <button type="submit"> Envoyer</button>
+    {{form_end(form)}}
+{% endblock %}

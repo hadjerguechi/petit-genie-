@@ -32,8 +32,6 @@
         "twig/twig": "^2.12|^3.0",
         "vich/uploader-bundle": "^1.18"
     },
-    "require-dev": {
-    },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": {
