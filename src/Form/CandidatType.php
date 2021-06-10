@@ -48,6 +48,7 @@ class CandidatType extends AbstractType
                 'placeholder' => 'tu sais parler quoi ?',
                 'choices'=> Candidat::LANGAGES,
                 'multiple'=>true,
+
         ])
         
         ;

@@ -62,6 +62,14 @@ p.text-content{
     margin: 0 auto;
     line-height: 1.9;
 }
+.mon-d-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grand-height{
+    height: 100vh;
+}
 /*------------- BOUTONS ---------------*/
 
 .mon-btn{
@@ -222,18 +230,6 @@ p.text-hero{
     
     margin-top: 50px;
 }
-input[type=search], input[type=email] {
-    padding: 12px 20px;
-    background-color: transparent !important;
-    color: var(--grey-color);
-    font-weight: 600;
-    border: solid 2px var(--black-color);
-}
- input[type=search]:focus, input[type=email]:focus {
-    box-shadow: none;
-    border: solid 2px var(--primary-color);
-    color: var(--contenu-color);
-}
 .container-pastille{
     margin-top: 30px;
     display: flex;
@@ -383,10 +379,80 @@ p.description-footer{
     font-weight: 600;
 }
 
+.title-section-recherche{
+    display: flex;
+    justify-content: space-between;
+}
 
+.container-resultats{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.color-title-resultats{
+    background-color: var(--grey-light-color);
+}
+.ma-card{
+    max-width: 640px;
+    height: auto;
+    border-radius: var(--border-radius-main);
+    border: 2px solid var(--contenu-color);
 
+}
+.gauche-card{
+    
+}
 
+/* ------------- FORMULAIRE -------------*/
 
+.formulaire{
+    width: 60vh;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, .15);
+    /* box-shadow: var(--box-shadows-main); */
+}
+.mon-label{
+    font-weight: 600;
+}
+.container-envoye{
+    display: flex;
+    justify-content:flex-end;
+ }
+
+textarea:focus {
+    border: solid 1px var(--primary-color) !important;
+    box-shadow: none !important;
+}
+
+p.bas-formulaire{
+    text-align: center;
+}
+input[type=search], input[type=email], input[type=password] {
+    padding: 12px 20px;
+    background-color: transparent !important;
+    color: var(--grey-color);
+    font-weight: 600;
+    border: solid 1px var(--contenu-color);
+}
+ input[type=search]:focus, input[type=email]:focus, input[type=password]:focus {
+    box-shadow: none;
+    border: solid 1px var(--primary-color);
+    color: var(--contenu-color);
+}
+.btn-connexion{
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+.btn-connexion:hover{
+    color: var(--white-color);
+    background-color: var(--primary-hover-color);
+}
+.bas-formulaire a{
+    text-decoration: none;
+    color: var(--primary-hover-color);
+}
 
 /*--------------------- MEDIAS QUERY -------------------------*/
 

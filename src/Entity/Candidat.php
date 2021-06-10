@@ -138,6 +138,11 @@ class Candidat
      */
     private $langages;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
+
   
 
     
@@ -253,6 +258,18 @@ class Candidat
     public function setLangages(array $langages): self
     {
         $this->langages = $langages;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
 
         return $this;
     }

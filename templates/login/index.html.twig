@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter{% endblock %}
+
+{% block body %}
+<!--- LE CONTENU PRINCIPAL -->
+    <main class="grand-height mon-d-flex">
+        <!-- section connexion -->
+        <section class="connexion">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <form class="formulaire" method="POST">
+                            <p>
+                                <a class="navbar-brand" href="#"><img class="logo" src="./assets/images/logo.svg" alt="Social network"></a> 
+                            </p>
+                            <h3 class="mb-4">Identifie-toi </h3>
+                            <div class="mb-3">
+                                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
+                                {{ form_row(form.email)}}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.password)}}
+                            </div>
+                            <p class="container-envoye">
+                                <a href="#"></a><button type="submit" class="btn mon-btn btn-connexion">Se connecter</button></a>
+                            </p>
+                            <p class="bas-formulaire"><span>Pas encore inscrit ?</span> • <a href="#"><span>Créer un compte</span></a></p>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="copyright">
+    <p>© Little genius. Tous droits réservés. </p>
+    </div>
+{% endblock %}
