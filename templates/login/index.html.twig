@@ -10,20 +10,28 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <form class="formulaire" method="POST">
+
+                        {% if error %}
+
+	                      <div class="alert alert-danger">
+                       {{ error.messageKey|trans(error.messageData, 'security')}}
+	                  </div>
+                    {% endif %}
+
+                        <form class="formulaire" method="post">
+                             
                             <p>
                                 <a class="navbar-brand" href="/"><img class="logo" src="./assets/images/logo.svg" alt="Social network"></a> 
                             </p>
                             <h3 class="mb-4">Identifie-toi </h3>
                             <div class="mb-3">
-                                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
-                                {{ form_row(form.email) }}
+                             <input type="email" value="{{ last_username }}" name="_username">
                             </div>
                             <div class="mb-3">
-                                {{ form_row(form.password)}}
+                             <input type="password"  name="_password">
                             </div>
                             <p class="container-envoye">
-                                <a href="#"></a><button type="submit" class="btn mon-btn btn-connexion">Se connecter</button></a>
+                                <input type="submit" value="Se connecter">
                             </p>
                             <p class="bas-formulaire"><span>Pas encore inscrit ?</span> • <a href="/candidat"><span>Créer un compte</span></a></p>
                             
