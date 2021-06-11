@@ -2,27 +2,32 @@
 
 namespace App\Controller;
 
-use App\Entity\Candidat;
-use App\Form\LoginType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class LoginController extends AbstractController
 {
     /**
      * @Route("/login", name="login")
      */
-    public function index(Request $request): Response
+    public function index(AuthenticationUtils $authenticationUtils)
     {
-        $session = new Candidat();
-        $form = $this->createForm(LoginType::class, $session);
-        $form->handleRequest($request);
+       $error = $authenticationUtils->getLastAuthenticationError();
+       dump($error);
+       $lastUsername= $authenticationUtils->getLastUsername();
         
         return $this->render('login/index.html.twig', [
-            'form'=>$form->createView(),
-            'session' => $session
+            "last_username" => $lastUsername,
+            "error" => $error
         ]);
+    }
+
+    public function welcome(){
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $user = $this->getUser();
+        return new Response('Bienvenue'.$user->getUsername());
+
     }
 }

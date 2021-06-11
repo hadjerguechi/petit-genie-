@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+use App\Entity\User;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\CandidatRepository;
@@ -12,12 +13,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=CandidatRepository::class)
- * @UniqueEntity(
- *  fields={"email"},
- * message="Ce compte existe déja.")
-
  */
-class Candidat
+class Candidat extends User
 {
     const  EXPERIENCE = [
         '- de 6 mois' => "- de 6 mois",
@@ -57,6 +54,7 @@ class Candidat
      * @ORM\Column(type="string", length=80)
      */
     private $name;
+    
 
     /**
      * @Assert\NotBlank(message = "Merci de rentrer votre prénom!")
@@ -70,21 +68,6 @@ class Candidat
      */
     private $firstname;
 
-    /** 
-     * @Assert\NotBlank(message = "Merci de rentrer votre email!")
-     * @Assert\Length(
-     *      min = 5,
-     *      max = 100,
-     *      minMessage = "L'e-mail ne peut pas être  inferieur à 5 caractères",
-     *      maxMessage = "L'e-mail  ne peut pas être superieur à 100 caractères",
-     * )
-     * @Assert\Email(
-     *     message = "  cet eamil '{{ value }}' invalide."
-     * )
-     * 
-     * @ORM\Column(type="string", length=100 , unique=true )
-     */
-    private $email;
 
     /**
      * @Assert\Regex(
@@ -130,21 +113,13 @@ class Candidat
 
     /**
      * 
-     * 
-     * 
-     *
      * @ORM\Column(type="json" )
      * 
      */
     private $langages;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $password;
-
   
-
+    
     
  
     public function getId(): ?int
@@ -176,18 +151,7 @@ class Candidat
         return $this;
     }
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
+    
     public function getTel(): ?string
     {
         return $this->tel;
@@ -260,22 +224,6 @@ class Candidat
         $this->langages = $langages;
 
         return $this;
-    }
-
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
+    }  
     
-   
-
-  
 }
