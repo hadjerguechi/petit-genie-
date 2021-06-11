@@ -543,7 +543,7 @@ input[type=checkbox]{
 [type="checkbox"]:not(:checked) + label::after,
 [type="checkbox"]:checked + label::after {
 	content: '✓';
-	speak: never; /* Pour être sûr que le lecteur d'écran ne lira pas "fois" */
+	/*speak: never; Pour être sûr que le lecteur d'écran ne lira pas "fois" */
 	position: absolute;
 	top: .38em;
 	left: .18em;
@@ -580,7 +580,7 @@ input[type=checkbox]{
 [type="checkbox"]:disabled:not(:checked) + label::before,
 [type="checkbox"]:disabled:checked + label::before {
 	box-shadow: none;
-	border-color: var(--contenu-color)
+	border-color: var(--contenu-color);
 	background-color: var(--grey-light-color);
 }
 
