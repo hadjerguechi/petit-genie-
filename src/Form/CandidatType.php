@@ -17,7 +17,6 @@ class CandidatType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            
             ->add('name', TextType::class, ['label' => "Nom"])
             -> add('firstname', TextType::class, ['label' => "Prénom"])
             ->add('email', EmailType::class, ['label' => "Email"])
@@ -50,7 +49,7 @@ class CandidatType extends AbstractType
                 'multiple'=>true,
 
         ])
-        
+            ->add('password') 
         ;
     }
 
