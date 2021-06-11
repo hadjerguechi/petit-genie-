@@ -24,10 +24,10 @@ class LoginController extends AbstractController
         ]);
     }
 
-    public function welcome(){
+    /*public function welcome(){
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
         return new Response('Bienvenue'.$user->getUsername());
 
-    }
+    }*/
 }

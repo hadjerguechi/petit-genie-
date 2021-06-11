@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasher;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface
 {
-    private $passwordEncoder;
+    private $passwordHasher;
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -39,6 +39,11 @@ class User implements UserInterface
      */
     private $email;
 
+     /**
+     * @ORM\Column(type="string", length=180, unique=true)
+     */
+    private $username;
+
     /**
      * @ORM\Column(type="json", nullable=true )
      */
@@ -50,12 +55,11 @@ class User implements UserInterface
      */
     private $password;
 
-    public function __construct(UserPasswordEncoder $passwordEncoder)
+    public function __construct(UserPasswordHasher $passwordHasher)
     {
-        $this->passwordEncoder= $passwordEncoder;
+        $this->passwordHasher= $passwordHasher;
     }
     
-
     public function getId(): ?int
     {
         return $this->id;
@@ -102,7 +106,7 @@ class User implements UserInterface
 
     public function setPassword(string $password): self
     {
-        $this->password = $this->passwordEncoder->encodePassword($this, $password);
+        $this->password = $this->passwordHasher->hashPassword($this, $password);
 
         return $this;
     }
@@ -113,9 +117,9 @@ class User implements UserInterface
      *
      * @see UserInterface
      */
-    public function getSalt(): ?string
+    public function getSalt()
     {
-        return null;
+        // return null;
     }
 
     /**
@@ -130,26 +134,6 @@ class User implements UserInterface
     public function getUsername()
     {
         return $this->email;
-    }
-
-    /**
-     * Get the value of passwordHasher
-     */ 
-    public function getPasswordHasher()
-    {
-        return $this->passwordHasher;
-    }
-
-    /**
-     * Set the value of passwordHasher
-     *
-     * @return  self
-     */ 
-    public function setPasswordHasher($passwordHasher)
-    {
-        $this->passwordHasher = $passwordHasher;
-
-        return $this;
     }
 
     /**
@@ -168,6 +152,18 @@ class User implements UserInterface
     public function setEmail($email)
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of username
+     *
+     * @return  self
+     */ 
+    public function setUsername($username)
+    {
+        $this->username = $username;
 
         return $this;
     }

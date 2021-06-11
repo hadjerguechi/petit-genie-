@@ -12,16 +12,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class CandidatController extends AbstractController 
 {
     /**
      * @Route("/candidat", name="candidat")
      */
-    public function index(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function index(Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {  
-        $candidat= new Candidat($passwordEncoder);
+        $candidat= new Candidat($passwordHasher);
         
         $form = $this->createForm(CandidatType::class, $candidat);
         $form->handleRequest($request);
