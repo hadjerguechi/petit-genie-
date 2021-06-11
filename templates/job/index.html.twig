@@ -3,6 +3,8 @@
 {% block title %}Hello JobController!{% endblock %}
 
 {% block body %}
+{{ parent() }}
+
 <div>
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
     {{ form_row(form.missiontitle)}}

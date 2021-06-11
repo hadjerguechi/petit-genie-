@@ -3,6 +3,8 @@
 {% block title %}Hello RecruteurController!{% endblock %}
 
 {% block body %}
+{{ parent() }}
+
 <div class="">
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
     {{ form_row(form.companyname)}}

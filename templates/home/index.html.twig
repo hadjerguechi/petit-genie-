@@ -12,9 +12,8 @@
               <div class="gauche col-12 col-sm-12 col-md-12 col-lg-6">
                 <h1 class="main-titre">Trouvez l’emploi qui vous convient</h1>
                 <p class="text-hero">
-                  Lorem ipsum dolor sit amet, consectetur 
-                  Finis  de trouver un stage/une mission, Little genius vous 
-                  facilite …
+                    Little Genius est une pépinière de talents, dont le but est de vous aider à intégrer le monde du developpement.
+                    Nous vous accompagnons afin de chercher vos premières missions/stages, et aidons les entreprise à trouver de nouveaux talents !
                 </p>
                 
                 <div class="container-search">
@@ -81,59 +80,13 @@
                 </p>
               </div>
             </div>
-            {% for candidat in candidats %}
-                <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+            <div class="row d-flex mt-5 sous-genius">
+                {% for candidat in candidats %}
                     <div class="blocs-genius-mois">
-                        <img src="uploads/images/{{candidat.photo}}">
+                        <img class="img-genius-index" src="uploads/images/{{candidat.photo}}">
+                        <h3>{{candidat.name}}</h3>
                     </div>
-                    <h3>{{candidat.name}}</h3>
-                </div>
-            {% endfor %}
-            <div class="row container-blocs-genius-mois">
-              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-                <div class="blocs-genius-mois"></div>
-                <h3>Développeur Front-End</h3>
-              </div>
-              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-                <div class="blocs-genius-mois"></div>
-                <h3>Product Designer</h3>
-              </div>
-              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-                <div class="blocs-genius-mois"></div>
-                <h3>Développeur Symfony</h3>
-              </div>
-              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-                <div class="blocs-genius-mois"></div>
-                <h3>Intégrateur Web</h3>
-              </div>
-              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-                <div class="blocs-genius-mois"></div>
-                <h3>Développeur Java</h3>
-              </div>
-              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-                <div class="blocs-genius-mois"></div>
-                <h3>Développeur Mobile</h3>
-              </div>
-              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-                <div class="blocs-genius-mois"></div>
-                <h3>Data Scientist</h3>
-              </div>
-              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-                <div class="blocs-genius-mois"></div>
-                <h3>UI Designer</h3>
-              </div>
-              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-                <div class="blocs-genius-mois"></div>
-                <h3>Développeur Back-End</h3>
-              </div>
-              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-                <div class="blocs-genius-mois"></div>
-                <h3>Développeur Back-End</h3>
-              </div>
-              <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-                <div class="blocs-genius-mois"></div>
-                <h3>Développeur Back-End</h3>
-              </div>
+                {% endfor %}
             </div>
           </div>
         </section>
@@ -141,17 +94,6 @@
         <!-- section rejoignez-nous -->
         <section class="rejoignez">
           <div class="container">
-            <div class="row">
-              <div class="text-center title-section col-12 col-sm-12 col-md-12 col-lg-12">
-                <h2>Les genius du mois</h2>
-                <p class="text-content col-12 col-sm-12 col-md-12 col-lg-5">
-                  Lorem ipsum dolor sit amet, consectetur 
-                  Finis  de trouver un stage/une mission, Little genius vous 
-                  facilite
-                </p>
-              </div>
-            </div>
-
             <div class="row">
               <div class="container-rejoignez col-12 col-sm-12 col-md-12 col-lg-6"></div>
               

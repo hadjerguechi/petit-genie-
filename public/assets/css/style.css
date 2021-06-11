@@ -288,16 +288,16 @@ p.text-hero{
     display: flex;
     justify-content: space-around;
 }
+.img-genius-index{
+    max-width: 60%;
+    max-height: 60%;
+}
 .blocs-genius-mois{
-    max-width: 200px;
-    height: 200px;
-    margin-top: 50px;
-    background-color: var(--grey-light-color);
-    border-radius: var(--border-radius-main);
+    max-width: 350px;
+    text-align: center;
 }
 .sous-genius{
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
 .sous-genius h3{
