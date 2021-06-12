@@ -20,9 +20,13 @@ class RecruteurController extends AbstractController
         $form = $this->createForm(RecruteurType::class, $recruteur);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($this->getUser()) {
+                $idUser = $this->getUser();
+            $recruteur->setIdUser($idUser);
             $em = $this->getDoctrine()->getManager();
             $em->persist($recruteur);
             $em->flush();
+            }
         }
         return $this->render('recruteur/index.html.twig', [
             'form'=>$form->createView(),

@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass=CandidatRepository::class)
  */
-class Candidat extends User
+class Candidat
 {
     const  EXPERIENCE = [
         '- de 6 mois' => "- de 6 mois",
@@ -117,6 +117,12 @@ class Candidat extends User
      * 
      */
     private $langages;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $id_user;
 
   
     
@@ -222,6 +228,18 @@ class Candidat extends User
     public function setLangages(array $langages): self
     {
         $this->langages = $langages;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->id_user;
+    }
+
+    public function setIdUser(User $id_user): self
+    {
+        $this->id_user = $id_user;
 
         return $this;
     }  
