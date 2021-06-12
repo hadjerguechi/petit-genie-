@@ -3,7 +3,8 @@
 {% block title %}Hello RecruteurController!{% endblock %}
 
 {% block body %}
-<div class="">
+{{ parent() }}
+{#<div class="">
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
     {{ form_row(form.companyname)}}
     {{ form_row(form.contactname)}}
@@ -12,5 +13,59 @@
     {{ form_row(form.phonenumber)}}
     <button type="submit"> Envoyer</button>
     {{form_end(form)}}
-</div>
+</div>#}
+
+    <!--- LE CONTENU PRINCIPAL -->
+    <main class=" mon-d-flex">
+        <!-- section inscription -->
+        <section class="inscription">
+            <div class="container">
+                <form class="formulaire-inscription row" method="POST">
+                    <p>
+                        <a class="navbar-brand" href="#"><img class="logo" src="./assets/images/logo.svg" alt="genius"></a> 
+                    </p>
+                    <h3 class="mb-4">Inscris-toi </h3>
+                    <div class="mb-3 col-md-6 col-12 col-sm-12">
+                        <label for="name-entreprise" class="form-label">Nom de l'entreprise</label>
+                        <input type="text" class="form-control" id="name-entreprise"  name="name-entreprise" placeholder=" Nom de l'entreprise" minlength="2" require>
+                    </div>
+
+                    <div class="mb-3 col-md-6 col-12 col-sm-12">
+                        <label for="name" class="form-label">Nom du contact</label>
+                        <input type="text" class="form-control" id="name"  name="name" placeholder=" Nom du contact" minlength="2" require>
+                    </div>
+
+
+                    <div class="mb-3 col-md-6 col-12 col-sm-12">
+                        <label for="mail" class="form-label">E-mail du contact</label>
+                        <input type="email" class="form-control" id="mail"  name="mail" placeholder="genius@gmail.com" minlength="2" require>
+                    </div>
+
+                    <div class="mb-3 col-md-6 col-12 col-sm-12">
+                        <label for="tel" class="form-label">Téléphone du contact </label>
+                        <input type="tel" class="form-control" id="tel"  name="tel" placeholder="Téléphone du contact" minlength="2" require>
+                    </div>
+
+
+                    <div class="mb-3 col-12">
+                        <label for="password" class="form-label">Mot de passe</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="XXXXXXXXXX" minlength="2" require>
+                    </div>
+
+    
+                    <div class="mb-3 col-md-12 col-12 col-sm-12">
+                        <label for="description" class="form-label">Description de l'entreprise</label>
+                        <textarea class="form-control" rows="7" id="description" name="description" placeholder="description" require></textarea>
+                    </div>
+
+                    <p class="container-envoye">
+                        <a href="#"></a><button type="submit" class="btn mon-btn btn-connexion">Rejoins Little Genius</button></a>
+                    </p>
+                    
+                </form>
+            </div>
+        </section>
+
+    </main>
+
 {% endblock %}
