@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Mon profil</h1>
+<div><img src="/uploads/images/{{candidat.photo}}"></div>
+<p>Nom: {{candidat.name}}</p>
+<p>Prénom:{{candidat.firstname}}</p>
+<p>Mes compétences: </p>
+<ul>
+{% for langage in candidat.langages %}
+<li>{{langage}}</li>
+{% endfor %}
+</ul>
+<p>Mon éxperience: {{ candidat.experience}}</p>
+<p>Mon téléphone: {{candidat.tel}} </p>
+<p>Mon adresse: {{candidat.address}}</p>
+<p>Disponibilité: {% if candidat.openwork %} oui {%  else %} Non {% endif %}</p>
+<button class="btn btn-primary">Modifier profil</button>
+<a href="/candidat/delete" class="btn btn-danger">Supprimer profil</a>
+
+
+
+
+{% endblock %}
