@@ -3,7 +3,7 @@
 {% block title %}Inscription {% endblock %}
   
 {% block body %}
-
+{{ parent() }}
 {#<div class="container">
 {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
 {{ form_row(form.name)}}
@@ -33,7 +33,7 @@
                     <p>
                         <a class="navbar-brand" href="#"><img class="logo" src="./assets/images/logo.svg" alt="genius"></a> 
                     </p>
-                    <h3 class="mb-4">Inscris-toi </h3>
+                    <h3 class="mb-4">Inscription candidat </h3>
                     <div class="mb-3 col-md-6 col-12 col-sm-12">
                         <label for="name" class="form-label">Ton nom</label>
                         <input type="text" class="form-control" id="name"  name="name" placeholder=" Ton Nom" minlength="2" require>
@@ -62,7 +62,7 @@
 
                     <div class="mb-3 col-md-6 col-12 col-sm-12">
                         <label for="experience" class="form-label">Ton expérience</label>
-                        <select id="experience" class="form-select" name="experience" require>
+                        <select id="experience" class="form-select mon-select" name="experience" require>
                             <option selected>- de 6 mois</option>
                             <option> 12 mois</option>
                             <option>+ de 12 mois</option>
@@ -76,7 +76,7 @@
 
                     <div class="mb-3 col-md-6 col-12 col-sm-12">
                         <label for="langages" class="form-label">Langages</label>
-						<select id="langages" class="form-select" name="langages" multiple aria-label="multiple select example">
+						<select id="langages" class="form-select mon-select" name="langages" multiple aria-label="multiple select example">
 							<option selected>PHP</option>
 							<option value="1">JavaScript</option>
 							<option value="2">JQuery</option>
@@ -99,7 +99,7 @@
                     <p class="container-envoye">
                         <a href="#"></a><button type="submit" class="btn mon-btn btn-connexion">Rejoins Little Genius</button></a>
                     </p>
-                    <p class="bas-formulaire"><span>Déjà inscrit ?</span> • <a href="./connexion.html"><span>Connecte-toi</span></a></p>
+                    <p class="bas-formulaire"><span>Déjà inscrit ?</span> • <a href="./login"><span>Connecte-toi</span></a></p>
                     
                 </form>
             </div>

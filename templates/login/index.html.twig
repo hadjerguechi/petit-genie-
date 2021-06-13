@@ -13,25 +13,28 @@
 
                         {% if error %}
 
-	                      <div class="alert alert-danger">
+	                      <div class="alert alert-danger erreur">
                        {{ error.messageKey|trans(error.messageData, 'security')}}
 	                  </div>
                     {% endif %}
 
                         <form class="formulaire" method="post">
                              
-                            <p>
-                                <a class="navbar-brand" href="/"><img class="logo" src="./assets/images/logo.svg" alt="Social network"></a> 
+                            <p class="mon-d-flex-between">
+                                <a class="navbar-brand" href="/"><img class="logo" src="./assets/images/logo.svg" alt="little genius"></a>
+                                <h3 class="mb-4">Connexion candidat </h3> 
                             </p>
-                            <h3 class="mb-4">Identifie-toi </h3>
+                            
                             <div class="mb-3">
-                             <input type="email" value="{{ last_username }}" name="_username">
+                             <label for="_username" class="form-label">E-mail</label>
+                                <input type="email" value="{{ last_username }}" class="form-control" id="mail"  name="_username" placeholder="genius@gmail.com" minlength="2" require>
                             </div>
                             <div class="mb-3">
-                             <input type="password"  name="_password">
+                             <label for="_assword" class="form-label">Mot de passe</label>
+                                <input type="password" class="form-control" id="password" name="_password" placeholder="XXXXXXXXXX" minlength="2" require>
                             </div>
                             <p class="container-envoye">
-                                <input type="submit" value="Se connecter">
+                                <button type="submit" class="btn mon-btn btn-connexion">Se connecter</button>
                             </p>
                             <p class="bas-formulaire"><span>Pas encore inscrit ?</span> • <a href="/candidat"><span>Créer un compte</span></a></p>
                             
