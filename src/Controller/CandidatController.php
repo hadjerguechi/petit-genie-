@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Candidat;
 use App\Form\CandidatType;
-use Requests;
+use App\Form\EditCandidatType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 //use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -88,17 +88,23 @@ class CandidatController extends AbstractController
          return $this->redirectToRoute("app_logout");
      }
     /**
-     * @Route("candidat/update" , name="app-candidat-update")
-     */
-     public function updateCandidat(Requests $request){
-        $id = $this->getUser()->getId();
-        $em = $this->getDoctrine()->getManager();
-        $candidat = $em->getRepository("App\Entity\Candidat")->findOneBy(array("id_user" => $id));
+     * @Route("/candidat/update" , name="app-candidat-update")
+      */
+     public function updateCandidat(Request $request){
+         $id = $this->getUser()->getId();
+         $em = $this->getDoctrine()->getManager();
+         $candidat = $em->getRepository("App\Entity\Candidat")->findOneBy(array("id_user" => $id));
+         dump($candidat);
          $form= $this->createForm(EditCandidatType::class, $candidat);
          $form->handleRequest($request);
          if($form->isSubmitted() && $form->isValid()){
-           $this->getDoctrine()->getManager()->flush();
-         }
-         return $this->render("candidat/edit.html.twig",["form"=>$form->createView()]);
+             $em1= $this->getDoctrine()->getManager();
+             $em1->persist($candidat);
+             $em1->flush();
+             $this->addFlash('message','Profil mis à jour');
+              return $this->redirectToRoute('profil');
+          }
+          
+         return $this->render("candidat/edit.html.twig",['form' => $form->createView(),"candidat"=>$candidat]);
      }
 }
