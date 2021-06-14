@@ -5,7 +5,6 @@ namespace App\Form;
 use App\Entity\Candidat;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,7 +18,7 @@ class CandidatType extends AbstractType
         $builder
             ->add('name', TextType::class, ['label' => "Nom"])
             -> add('firstname', TextType::class, ['label' => "Prénom"])
-            ->add('email', EmailType::class, ['label' => "Email"])
+            
             ->add('tel', TextType::class, ['label' => "Téléphone"])
             ->add('experience', ChoiceType::
             class,   ['label' => "Experience professionnelle",
@@ -49,7 +48,7 @@ class CandidatType extends AbstractType
                 'multiple'=>true,
 
         ])
-            ->add('password') 
+           
         ;
     }
 

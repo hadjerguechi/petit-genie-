@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription {% endblock %}
-  
+{% block title %}Modifier profil
+{% endblock %}
+
 {% block body %}
 
 <div class="container">
-{{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
+{# <form method="post">
+<input type="text" value={{candidat.name}}>
+
+<form> #}
+{{ form_start(form) }}
+
 {{ form_row(form.name)}}
 {{ form_row(form.firstname)}}
 {{ form_row(form.tel)}}
@@ -14,10 +20,14 @@
 {{ form_row(form.langages)}}
 {{ form_row(form.photofile)}}
 {{ form_row(form.openwork)}}
-<button type="submit" class="btn btn-primary" >
-		Envoyer</button>
-	{{form_end(form)}}
+
+<button type="submit" class="btn btn-primary">
+	Envoyer</button>
+{{ form_end(form) }}
+
+
 </div>
 
 
 {% endblock %}
+

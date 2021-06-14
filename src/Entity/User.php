@@ -4,17 +4,16 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
-use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
-class User implements UserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    private $passwordEncoder;
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -22,25 +21,13 @@ class User implements UserInterface
      */
     private $id;
 
-    
-     /**
-     * @Assert\NotBlank(message = "Merci de rentrer votre e-mail!")
-     * @Assert\Length(
-     *      min = 5,
-     *      max = 100,
-     *      minMessage = "L'e-mail ne peut pas être inferieur à 5 caractères",
-     *      maxMessage = "L'e-mail ne peut pas être superieur à 100 caractères",
-     * )
-     * @Assert\Email(
-     *     message = "  Cet e-mail '{{ value }}' invalide."
-     * )
-     *
+    /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="json", nullable=true )
+     * @ORM\Column(type="json")
      */
     private $roles = [];
 
@@ -50,18 +37,22 @@ class User implements UserInterface
      */
     private $password;
 
-    public function __construct(UserPasswordEncoder $passwordEncoder)
-    {
-        $this->passwordEncoder= $passwordEncoder;
-    }
-    
-
     public function getId(): ?int
     {
         return $this->id;
     }
 
-   
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
 
     /**
      * A visual identifier that represents this user.
@@ -102,11 +93,11 @@ class User implements UserInterface
 
     public function setPassword(string $password): self
     {
-        $this->password = $this->passwordEncoder->encodePassword($this, $password);
+        $this->password = $password;
 
         return $this;
     }
-   
+
     /**
      * Returning a salt is only needed, if you are not using a modern
      * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
@@ -126,49 +117,9 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
-
     public function getUsername()
     {
         return $this->email;
-    }
-
-    /**
-     * Get the value of passwordHasher
-     */ 
-    public function getPasswordHasher()
-    {
-        return $this->passwordHasher;
-    }
-
-    /**
-     * Set the value of passwordHasher
-     *
-     * @return  self
-     */ 
-    public function setPasswordHasher($passwordHasher)
-    {
-        $this->passwordHasher = $passwordHasher;
-
-        return $this;
-    }
-
-    /**
-     * Get min = 5,
-     */ 
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set min = 5,
-     *
-     * @return  self
-     */ 
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
+        
     }
 }

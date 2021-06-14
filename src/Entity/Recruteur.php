@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Entity;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\RecruteurRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -90,6 +89,12 @@ class Recruteur
      */
     private $phonenumber;
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $id_user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -151,6 +156,18 @@ class Recruteur
     public function setPhonenumber(string $phonenumber): self
     {
         $this->phonenumber = $phonenumber;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->id_user;
+    }
+
+    public function setIdUser(User $id_user): self
+    {
+        $this->id_user = $id_user;
 
         return $this;
     }
