@@ -3,20 +3,21 @@
 {% block title %}Hello GeniusListController!{% endblock %}
 
 {% block body %}
-{{ parent() }}
 <body>
+  {{ parent() }}
+      <!--- LE CONTENU PRINCIPAL -->
       <main>
         <!-- section hero recherche -->
         <section class="hero-recherche">
           <div class="container">
             <div class="row">
               <div class="centrer-h-recherche col-12 col-sm-12 col-md-12 col-lg-6">
-                <h2>Allez les genius !<br> Trouvez votre <span>chance</span>, ici.</h2>
+                <h2>Allez genius !<br> Trouve ta <span>chance</span> ici</h2>
                 
                 <div class="container-search">
-                  <form class="d-flex">
+                  <form class="d-flex col-12">
                     <input class="form-control me-2 form-resultats" type="search" placeholder="PHP, Vue.js, JavaScript,…" aria-label="Search">
-                    <button class="btn mon-btn btn-lancer" type="submit"><i class="mon-i fas fa-search"></i> &nbsp; Se lancer !</button>
+                    <button class="btn mon-btn btn-lancer gestion-btn" type="submit"><i class="mon-i fas fa-search"></i><span>&nbsp; Lance-toi !</span></button>
                   </form>
                 </div>
              </div>
@@ -33,135 +34,73 @@
                   <h6>Filtrer</h6>
                 </div>
               </div>
-            </section>
-            <section class="resultats-recherche">
-  
-              <div class="row container-blocs-resultats">
-                 <div class="container-resultats col-12 col-sm-12 col-md-12 col-lg-12">
-                  
-                    <div class="card mb-5 ma-card">
-                        <div class="row g-0">
-                            <div class="col-md-4 gauche-card">
-                                <img src="/assets/images/r0.jpeg" alt="Agence r0" class="img-fluid">
-                            </div>
-  
-                            <div class="col-md-8">
+            </div>
+        </section>
+        <section class="resultats-recherche">
+
+            <div class="container">
+                <div class="row container-blocs-resultats g-5">
+
+                    <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
+                        <div class="card ma-card-petite">
+                            <img src="/assets/images/g1.jpg" alt="start-up 1" class="img-fluid">
                             <div class="card-body ma-card-body">
-                                <ul>
-                                    <span><small class="text-muted">AXA Assurance</small></span>
-                                    <h5 class="card-title">Développeur Symfony - H/F</h5>
-                                    <li class="card-text"><small class="text-muted"><i class="fas fa-briefcase"></i>&nbsp; Alternance</small></li>
-                                    <!--<li><p class="card-text text-content-card">Accenderat super his incitatum propositum ad nocendum aliqua mulier vilis, quae ad palatium ut poposcerat intromissa insidias.</p></li>-->
-                                    <li class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt"></i>&nbsp; Antony (92)</small></li>
-                                    <li class="card-text"><small class="text-muted"><i class="fas fa-graduation-cap"></i>&nbsp; Bac +2, Bac +3</small></li>
-                                </ul>
-                            </div>
+                                <h5 class="card-title">Lambert Émilie</h5>
+                                <h6 class="card-title-petite">Product Manager Junior - H/F</h6>
                             </div>
                         </div>
-                    </div>
-                 </div> 
-                 <div class="container-resultats col-12 col-sm-12 col-md-12 col-lg-12">
-                  
-                    <div class="card mb-5 ma-card">
-                        <div class="row g-0">
-                            <div class="col-md-4 gauche-card">
-                                <img src="/assets/images/r0.jpeg" alt="start-up 1" class="img-fluid">
-                            </div>
-  
-                            <div class="col-md-8">
+                    </div> 
+                    <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
+                        <div class="card ma-card-petite">
+                            <img src="/assets/images/g1.jpg" alt="start-up 1" class="img-fluid">
                             <div class="card-body ma-card-body">
-                                <ul>
-                                    <span><small class="text-muted">Typolgy</small></span>
-                                    <h5 class="card-title">Product Manager Junior - H/F</h5>
-                                    <li class="card-text"><small class="text-muted"><i class="fas fa-briefcase"></i>&nbsp; Alternance</small></li>
-                                    <!--<li><p class="card-text text-content-card">Accenderat super his incitatum propositum ad nocendum aliqua mulier vilis, quae ad palatium ut poposcerat intromissa insidias.</p></li>-->
-                                    <li class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt"></i>&nbsp; Paris (75)</small></li>
-                                    <li class="card-text"><small class="text-muted"><i class="fas fa-graduation-cap"></i>&nbsp; Bac +3</small></li>
-                                </ul>
-                            </div>
+                                <h5 class="card-title">Lambert Émilie</h5>
+                                <h6 class="card-title-petite">Product Manager Junior - H/F</h6>
                             </div>
                         </div>
-                    </div>
-                 </div> 
-                 <div class="container-resultats col-12 col-sm-12 col-md-12 col-lg-12">
-                    
-                    <div class="card mb-5 ma-card">
-                        <div class="row g-0">
-                            <div class="col-md-4 gauche-card">
-                                <img src="/assets/images/r0.jpeg" alt="start up" class="img-fluid">
-                            </div>
-
-                            <div class="col-md-8">
-                                <div class="card-body ma-card-body">
-                                    <ul>
-                                        <span><small class="text-muted">Société Générale</small></span>
-                                        <h5 class="card-title">Développeur Angular - H/F</h5>
-                                        
-                                        <li class="card-text"><small class="text-muted"><i class="fas fa-briefcase"></i>&nbsp; CDI</small></li>
-                                        <!--<li><p class="card-text text-content-card">Accenderat super his incitatum propositum ad nocendum aliqua mulier vilis, quae ad palatium ut poposcerat intromissa insidias.</p></li>-->
-                                        <li class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt"></i>&nbsp; Fontenay-Sous-Bois (94)</small></li>
-                                        <li class="card-text"><small class="text-muted"><i class="fas fa-graduation-cap"></i>&nbsp; Bac +2, Bac +3</small></li>
-                                    </ul>
-                                </div>
+                    </div> 
+                    <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
+                        <div class="card ma-card-petite">
+                            <img src="/assets/images/g1.jpg" alt="start-up 1" class="img-fluid">
+                            <div class="card-body ma-card-body">
+                                <h5 class="card-title">Lambert Émilie</h5>
+                                <h6 class="card-title-petite">Product Manager Junior - H/F</h6>
                             </div>
                         </div>
-                    </div>
-                 </div> 
-               </div>
-            </section>
+                    </div> 
+                    <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
+                        <div class="card ma-card-petite">
+                            <img src="/assets/images/g1.jpg" alt="start-up 1" class="img-fluid">
+                            <div class="card-body ma-card-body">
+                                <h5 class="card-title">Lambert Émilie</h5>
+                                <h6 class="card-title-petite">Product Manager Junior - H/F</h6>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
+                        <div class="card ma-card-petite">
+                            <img src="/assets/images/g1.jpg" alt="start-up 1" class="img-fluid">
+                            <div class="card-body ma-card-body">
+                                <h5 class="card-title">Lambert Émilie</h5>
+                                <h6 class="card-title-petite">Product Manager Junior - H/F</h6>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
+                        <div class="card ma-card-petite">
+                            <img src="/assets/images/g1.jpg" alt="start-up 1" class="img-fluid">
+                            <div class="card-body ma-card-body">
+                                <h5 class="card-title">Lambert Émilie</h5>
+                                <h6 class="card-title-petite">Product Manager Junior - H/F</h6>
+                            </div>
+                        </div>
+                    </div> 
 
-        </main>
+                </div>
+            </div>
+        </section>
 
-      <!--LE FOOTER-->
-      <footer class="footer">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-              <a class="navbar-brand" href="#" id="logo">
-                <img src="assets/images/logo-blanc.svg"  class="img-fluid" alt="logo blanc lgenius">
-              </a>
-              <p class="description-footer">
-                Lorem ipsum dolor sit amet, ipsum dolor sit consectetur 
-              </p>
+      </main>
 
-              <div class="div-social">
-                <a class="social-bouton" href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-                <a class="social-bouton" href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-                <a class="social-bouton" href="#">
-                  <i class="fab fa-instagram-square"></i>
-                </a>
-              </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-4"> 
-              <ul class="footer-ul">
-                <span>À PROPOS</span>
-                <li>l'Équipe</li>
-                <li>Partenariats offres</li>
-                <li>Offres de stage</li>
-                <li>Nous rejoindre</li>
-                <li>Nous rencontrer</li>
-              </ul>
-            </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-              <ul class="footer-ul">
-                <span>COMMENT ÇA MARCHE ?</span>
-                <li>Offres de stage</li>
-                <li>Offres d'emploi</li>
-                <li>Partenariats offres</li>
-                <li>Nos salons</li>
-                <li>Déposer son CV</li>
-                <li>FAQ</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-      </footer>
-      <div class="copyright">
-        <p>© Little genius. Tous droits réservés. </p>
-      </div>
+      {# {% include "./footer.html.twig" %} #}
 {% endblock %}

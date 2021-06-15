@@ -43,6 +43,7 @@ class CandidatController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
             $em->flush();
+            return $this->redirectToRoute("/");
             }
         }
             

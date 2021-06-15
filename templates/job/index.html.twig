@@ -3,18 +3,60 @@
 {% block title %}Hello JobController!{% endblock %}
 
 {% block body %}
+
 {{ parent() }}
-<br>
-<br>
-<br>
-<br>
-<br>
 <div>
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
+    {#{{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
     {{ form_row(form.missiontitle)}}
     {{ form_row(form.type)}}
     {{ form_row(form.companyname)}}
     {{ form_row(form.description)}}
     <button type="submit"> Envoyer</button>
-    {{form_end(form)}}
+    {{form_end(form)}} #}
+
+    <!--- LE CONTENU PRINCIPAL -->
+    <main class=" mon-d-flex">
+        <!-- section inscription -->
+        <section class="inscription">
+            <div class="container">
+                <form class="formulaire-inscription row" method="POST">
+                    <p class="mon-d-flex-between bg-warning">
+                        <a class="navbar-brand" href="#"><img class="logo" src="./assets/images/logo.svg" alt="Social network"></a> 
+                        <h3 class="mb-4">Création de job</h3>
+                    </p>
+                    
+                    <div class="mb-3 col-md-6 col-12 col-sm-12">
+                        <label for="titre-mission" class="form-label">Titre de la mission</label>
+                        <input type="text" class="form-control" id="titre-mission"  name="titre-mission" placeholder=" Titre de la mission" minlength="2" require>
+                    </div>
+
+                    <div class="mb-3 col-md-6 col-12 col-sm-12">
+                        <label for="contrat" class="form-label">Type de contrat</label>
+                        <select id="contrat" class="form-select mon-select" name="contrat" require>
+                            <option selected>CDI</option>
+                            <option> CDD</option>
+                            <option>STAGE</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 col-12">
+                        <label for="nom-entreprise" class="form-label">Nom de l'entreprise</label>
+                        <input type="text" class="form-control" id="nom-entreprise"  name="nom-entreprise" placeholder=" Nom de l'entreprise" minlength="2" require>
+                    </div>
+
+    
+                    <div class="mb-3 col-12">
+                        <label for="description" class="form-label">Description de la mission</label>
+                        <textarea class="form-control" rows="7" id="description" name="description" placeholder="description" require></textarea>
+                    </div>
+
+                    <p class="container-envoye">
+                        <button type="submit" class="btn mon-btn btn-connexion">Poste ton offre</button>
+                    </p>
+                    
+                </form>
+            </div>
+        </section>
+
+    </main>
 {% endblock %}
