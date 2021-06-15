@@ -423,7 +423,7 @@ p.text-hero{
 }
 .title-section h2{
     font-weight: 600;
-    font-size: var(--text-medium);
+    font-size: 2.5rem;
 }
 .bloc-explication{
     max-width: 350px;
@@ -534,7 +534,6 @@ p.text-hero{
 }
 .container-abonne{
     margin: 0 auto;
-    margin-top: 50px;
 }
 .mon-i{
     font-size: 1.5rem;
@@ -1053,7 +1052,6 @@ input[type=checkbox]{
         border-top-right-radius: var(--border-radius-main);
         border-bottom-left-radius: 0;
     }
-   
 
 }
 
