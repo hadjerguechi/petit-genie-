@@ -3,20 +3,116 @@
 {% block title %}Hello RecruteurController!{% endblock %}
 
 {% block body %}
-<<<<<<< HEAD
-{{ parent() }}
-
-<div class="">
-=======
-<div class="cantainer">
->>>>>>> fd8eb73aaf76b7e8100de8f23d2be830ef29cb9e
+{# <div class="container">
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
-    {{ form_row(form.companyname)}}
-    {{ form_row(form.contactname)}}
+    <div class="mb-3 col-md-6 col-12 col-sm-12">
+        {{ form_row(form.companyname)}}
+    </div>
+    <div class="mb-3 col-md-6 col-12 col-sm-12">
+      {{ form_row(form.contactname)}} 
+    </div>
+    <div class="mb-3 col-md-6 col-12 col-sm-12">
+    </div>
     {{ form_row(form.description)}}
     {{ form_row(form.contactemail)}}
     {{ form_row(form.phonenumber)}}
     <button type="submit"> Envoyer</button>
     {{form_end(form)}}
-</div>
+</div> #}
+{ parent()
+<body>
+    <div class="container-fluid" id="navbar">
+        <header>
+            <div class="container-fluid">
+                <div class="navbar">                 
+                    <div class="menu-toggle">
+                        <div class="hamburger"></div>
+                    </div>
+                    <a class="navbar-brand" href="/" id="logo">
+                        <img src="assets/images/logo.svg"  class="img-fluid" alt="logo little genius">
+                    </a>
+                    
+                    <nav class="navigation">
+                        <ul class="nav">
+                            <li class="nav-item mon-nav">
+                                <a class="nav-link" href="geniuseur.html">Trouve un genius</a>
+                            </li>
+                            <li class="nav-item mon-nav">
+                                <a class="nav-link"  href="joblist.html">Trouve un job</a>
+                            </li>
+                            <li class="nav-item mon-nav">
+                                <a class="nav-link" href="team.html">L'équipe</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="container-nav-droit">
+                        <a href="recruteur.html" class="mon-btn-border btn-recruteur">
+                            Recruteur 
+                        </a>
+                        <a href="/connexion.html" class="mon-btn btn-connecter">
+                            Se connecter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+<main class="mon-d-flex">
+    <!-- section inscription -->
+    <section class="profil p-t150">
+        <div class="container">
+            <div class="container-profil col-12">
+                <div class="col-3 side-profil">
+                    <h4>Mon profil</h4>
+                    <div class="container-img-profil">
+                        <img src="/assets/images/photo-recruteur.svg" alt="start-up 1" class="img-fluid">
+                    </div>
+                    <ul>
+                        <li><a href="" active><i class="fas fa-home"></i>&nbsp; Accueil</a></li>
+                        <!--<li><a href=""><i class="fas fa-pen"></i>&nbsp; modifier</a></li>-->
+                        <li><a href=""><i class="far fa-plus-square"></i>&nbsp; Créer une annonce</a></li>
+                        <li><a href=""><i class="fas fa-list-alt"></i>&nbsp; Toutes mes annonces</a></li>
+                        <li><a href=""><i class="fas fa-trash"></i>&nbsp; Supprimer</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-12 col-md-9 col-lg-9 droit-profil">
+                    
+                    <form class="formulaire-profil row" method="POST">
+                        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
+
+                        <div class="mb-3 col-md-6 col-12 col-sm-12">
+                            {{ form_row(form.companyname)}}
+                        </div>
+    
+                        <div class="mb-3 col-md-6 col-12 col-sm-12">
+                            {{ form_row(form.contactname)}} 
+                        </div>
+    
+    
+                        <div class="mb-3 col-md-6 col-12 col-sm-12">
+                            {{ form_row(form.contactemail)}}
+                        </div>
+    
+                        <div class="mb-3 col-md-6 col-12 col-sm-12">
+                            {{ form_row(form.phonenumber)}}
+                        </div>
+    
+    
+                        <div class="mb-3 col-md-12 col-12 col-sm-12">
+                            {{ form_row(form.description)}}
+                        </div>
+    
+                        <p class="container-envoye">
+                            <a href="#"></a><button type="submit" class="btn mon-btn btn-connexion">Rejoins Little Genius</button></a>
+                        </p>
+						{{ form_end(form) }}
+                    </form>
+                </div>
+                </div>
+            </div>
+        </section>
+        </main>
+        </body>
+
 {% endblock %}

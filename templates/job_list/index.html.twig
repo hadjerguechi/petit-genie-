@@ -4,27 +4,6 @@
 {% endblock %}
 
 {% block body %}
-<<<<<<< HEAD
-{{ parent() }}
-      <main>
-        <!-- section hero recherche -->
-        <section class="hero-recherche">
-          <div class="container">
-            <div class="row">
-              <div class="centrer-h-recherche col-12 col-sm-12 col-md-12 col-lg-6">
-                <h2>Allez les genius !<br> Trouvez votre <span>chance</span>, ici.</h2>
-                
-                <div class="container-search">
-                  <form class="d-flex">
-                    <input class="form-control me-2 form-resultats" type="search" placeholder="PHP, Vue.js, JavaScript,…" aria-label="Search">
-                    <button class="btn mon-btn btn-lancer" type="submit"><i class="mon-i fas fa-search"></i> &nbsp; Se lancer !</button>
-                  </form>
-                </div>
-             </div>
-            </div>
-          </div>
-        </section>
-=======
 	{{ parent() }}
 	<!--- LE CONTENU PRINCIPAL -->
 	<main>
@@ -37,7 +16,6 @@
 							Trouve ta
 							<span>chance</span>
 							ici</h2>
->>>>>>> fd8eb73aaf76b7e8100de8f23d2be830ef29cb9e
 
 						<div class="container-search">
 							<form class="d-flex col-12">
@@ -65,104 +43,28 @@
 			</div>
 		</section>
 		<section class="resultats-recherche">
-
+			{% for job in jobs %}
 			<div class="row container-blocs-resultats">
 				<div class="container-resultats col-12 col-sm-12 col-md-12 col-lg-12">
-
 					<div class="card mb-5 ma-card">
 						<div class="row g-0">
 							<div class="col-md-4 gauche-card">
 								<img src="/assets/images/r0.jpeg" alt="Agence r0" class="img-fluid">
 							</div>
-
 							<div class="col-md-8">
 								<div class="card-body ma-card-body">
 									<ul>
 										<span>
-											<small class="text-muted">AXA Assurance</small>
+											<small class="text-muted">{{job.companyname}}</small>
 										</span>
-										<h5 class="card-title">Développeur Symfony - H/F</h5>
+										<h5 class="card-title">{{job.missiontitle}}</h5>
 										<li class="card-text">
 											<small class="text-muted">
-												<i class="fas fa-briefcase"></i>&nbsp; Alternance</small>
-										</li>
-										<!--<li><p class="card-text text-content-card">Accenderat super his incitatum propositum ad nocendum aliqua mulier vilis, quae ad palatium ut poposcerat intromissa insidias.</p></li>-->
-										<li class="card-text">
-											<small class="text-muted">
-												<i class="fas fa-map-marker-alt"></i>&nbsp; Antony (92)</small>
+												<i class="fas fa-briefcase"></i>&nbsp; {{job.type}}</small>
 										</li>
 										<li class="card-text">
 											<small class="text-muted">
-												<i class="fas fa-graduation-cap"></i>&nbsp; Bac +2, Bac +3</small>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="container-resultats col-12 col-sm-12 col-md-12 col-lg-12">
-
-					<div class="card mb-5 ma-card">
-						<div class="row g-0">
-							<div class="col-md-4 gauche-card">
-								<img src="/assets/images/r0.jpeg" alt="start-up 1" class="img-fluid">
-							</div>
-
-							<div class="col-md-8">
-								<div class="card-body ma-card-body">
-									<ul>
-										<span>
-											<small class="text-muted">Typolgy</small>
-										</span>
-										<h5 class="card-title">Product Manager Junior - H/F</h5>
-										<li class="card-text">
-											<small class="text-muted">
-												<i class="fas fa-briefcase"></i>&nbsp; Alternance</small>
-										</li>
-										<!--<li><p class="card-text text-content-card">Accenderat super his incitatum propositum ad nocendum aliqua mulier vilis, quae ad palatium ut poposcerat intromissa insidias.</p></li>-->
-										<li class="card-text">
-											<small class="text-muted">
-												<i class="fas fa-map-marker-alt"></i>&nbsp; Paris (75)</small>
-										</li>
-										<li class="card-text">
-											<small class="text-muted">
-												<i class="fas fa-graduation-cap"></i>&nbsp; Bac +3</small>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="container-resultats col-12 col-sm-12 col-md-12 col-lg-12">
-
-					<div class="card mb-5 ma-card">
-						<div class="row g-0">
-							<div class="col-md-4 gauche-card">
-								<img src="/assets/images/r0.jpeg" alt="start up" class="img-fluid">
-							</div>
-
-							<div class="col-md-8">
-								<div class="card-body ma-card-body">
-									<ul>
-										<span>
-											<small class="text-muted">Société Générale</small>
-										</span>
-										<h5 class="card-title">Développeur Angular - H/F</h5>
-
-										<li class="card-text">
-											<small class="text-muted">
-												<i class="fas fa-briefcase"></i>&nbsp; CDI</small>
-										</li>
-										<!--<li><p class="card-text text-content-card">Accenderat super his incitatum propositum ad nocendum aliqua mulier vilis, quae ad palatium ut poposcerat intromissa insidias.</p></li>-->
-										<li class="card-text">
-											<small class="text-muted">
-												<i class="fas fa-map-marker-alt"></i>&nbsp; Fontenay-Sous-Bois (94)</small>
-										</li>
-										<li class="card-text">
-											<small class="text-muted">
-												<i class="fas fa-graduation-cap"></i>&nbsp; Bac +2, Bac +3</small>
+												<i class="far fa-clock"></i>&nbsp; Mise en ligne le : {{job.date|date("m/d/Y")}}</small>
 										</li>
 									</ul>
 								</div>
@@ -171,9 +73,10 @@
 					</div>
 				</div>
 			</div>
+			{% endfor %}
 		</section>
-
 	</main>
-</body></html>
+</body>
+</html>
 {% endblock %}
 

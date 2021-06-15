@@ -83,42 +83,72 @@
                         
                         <form class=" formulaire-profil row" method="POST">
                             <h4>Modifier</h4>
-                        		{{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
                             <div class="mb-3 col-md-6 col-12 col-sm-12">
-								{{ form_row(form.name)}}
+                                <label for="name" class="form-label">Ton nom</label>
+                                <input type="text" class="form-control" id="name"  name="name" placeholder=" Ton Nom" minlength="2" require>
                             </div>
         
                             <div class="mb-3 col-md-6 col-12 col-sm-12">
-								{{ form_row(form.firstname)}}
-							</div>
+                                <label for="firstname" class="form-label">Ton prénom</label>
+                                <input type="text" class="form-control" id="firstname"  name="firstname" placeholder="Ton prénom" minlength="2" require>
+                            </div>
+        
+                            <!-- <div class="mb-3 col-12">
+                                <label for="mail" class="form-label">Ton e-mail </label>
+                                <input type="email" class="form-control" id="mail"  name="mail" placeholder="genius@gmail.com" minlength="2" require>
+                            </div>
+        
+        
+                            <div class="mb-3 col-12">
+                                <label for="password" class="form-label">Ton mot de passe</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="XXXXXXXXXX" minlength="2" require>
+                            </div> -->
         
                             <div class="mb-3 col-md-6 col-12 col-sm-12">
-								{{ form_row(form.tel)}}
+                                <label for="tel" class="form-label">Ton numéro de téléphone </label>
+                                <input type="tel" class="form-control" id="tel"  name="tel" placeholder="Ton numéro de téléphone" minlength="2" require>
                             </div>
         
                             <div class="mb-3 col-md-6 col-12 col-sm-12">
-								{{ form_row(form.experience)}}
+                                <label for="experience" class="form-label">Ton expérience</label>
+                                <select id="experience" class="form-select mon-select" name="experience" require>
+                                    <option selected>- de 6 mois</option>
+                                    <option> 12 mois</option>
+                                    <option>+ de 12 mois</option>
+                                </select>
                             </div>
         
                             <div class="mb-3 col-12 col-12 col-sm-12">
-								{{ form_row(form.address, {'label' : 'Ta ville'})}}
+                                <label for="ville" class="form-label">Ton ville</label>
+                                <input type="text" class="form-control" id="ville" name="ville" placeholder="Ta ville" minlength="2" require>
                             </div>                            
         
                             <div class="mb-3 col-md-6 col-12 col-sm-12">
-								{{ form_row(form.langages)}}
+                                <label for="langages" class="form-label">Langages</label>
+                                <select id="langages" class="form-select mon-select" name="langages" multiple aria-label="multiple select example">
+                                    <option selected value="php">PHP</option>
+                                    <option value="javascript">JavaScript</option>
+                                    <option value="jquery">JQuery</option>
+                                    <option value="sql">SQL</option>
+                                    <option value="react">React</option>
+                                    <option value="java">Java</option>
+                                    <option value="python">Python</option>
+                                </select>
                             </div>
         
                             <div class="mb-3 col-md-6 col-12 col-sm-12">
-								{{ form_row(form.photofile)}}
+                                <label for="photofile" class="form-label">Une petite photo </label>
+                                <input type="file" class="form-control" id="photofile" name="photofile" placeholder="champs pour la photo" minlength="2" require>
                             </div>
                             <div class="mb-3">
-								{{ form_row(form.openwork)}}
+                                <input type="checkbox" id="openwork" name="openwork" checked require>
+                                <label for="openwork" class="form-label"> À l'écoute du marché</label>
                             </div>
         
                             <p class="container-envoye">
                                 <button type="submit" class="btn mon-btn btn-connexion">Rejoins Little Genius</button>
                             </p>
-						{{ form_end(form) }}
+                            
                         </form>
                     </div>
                 </div>
