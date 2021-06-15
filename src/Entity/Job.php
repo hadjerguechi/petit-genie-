@@ -74,6 +74,11 @@ class Job
      */
     private $companyname;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Recruteur::class, inversedBy="jobs")
+     */
+    private $id_recruteur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -135,6 +140,18 @@ class Job
     public function setCompanyname(string $companyname): self
     {
         $this->companyname = $companyname;
+
+        return $this;
+    }
+
+    public function getIdRecruteur(): ?Recruteur
+    {
+        return $this->id_recruteur;
+    }
+
+    public function setIdRecruteur(?Recruteur $id_recruteur): self
+    {
+        $this->id_recruteur = $id_recruteur;
 
         return $this;
     }

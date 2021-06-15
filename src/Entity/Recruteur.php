@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -82,13 +83,26 @@ class Recruteur
      *      minMessage = "Le numero de téléphone ne peut être inferieur à 10 caractères",
      *      maxMessage = "Le numero de téléphone ne peut être superieur à 20 caractères",
      * )
-     * @Assert\Regex(
-     *       pattern="/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/", 
-     *       message="Format invalide"
-     * )
+     * 
      * @Assert\NotBlank(message = "Merci de renseigner un numéro de téléphone")
      */
     private $phonenumber;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $id_user;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Job::class, mappedBy="id_recruteur")
+     */
+    private $jobs;
+
+    public function __construct()
+    {
+        $this->jobs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -151,6 +165,48 @@ class Recruteur
     public function setPhonenumber(string $phonenumber): self
     {
         $this->phonenumber = $phonenumber;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->id_user;
+    }
+
+    public function setIdUser(User $id_user): self
+    {
+        $this->id_user = $id_user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Job[]
+     */
+    public function getJobs(): Collection
+    {
+        return $this->jobs;
+    }
+
+    public function addJob(Job $job): self
+    {
+        if (!$this->jobs->contains($job)) {
+            $this->jobs[] = $job;
+            $job->setIdRecruteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeJob(Job $job): self
+    {
+        if ($this->jobs->removeElement($job)) {
+            // set the owning side to null (unless already changed)
+            if ($job->getIdRecruteur() === $this) {
+                $job->setIdRecruteur(null);
+            }
+        }
 
         return $this;
     }

@@ -24,7 +24,6 @@ class CandidatCrudController extends AbstractCrudController
     {
         return $filters
             ->add('name')
-            ->add('email')
             ->add(BooleanFilter::new('openwork'))
         ;
    }

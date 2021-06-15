@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier profil
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
+{{ form_row(form.companyname)}}
+{{ form_row(form.contactname)}}
+{{ form_row(form.description)}}
+{{ form_row(form.contactemail)}}
+{{ form_row(form.phonenumber)}}
+
+<button type="submit" class="btn btn-primary">
+	Envoyer</button>
+{{ form_end(form) }}</div>{% endblock %}
+
