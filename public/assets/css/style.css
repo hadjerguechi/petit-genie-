@@ -70,6 +70,15 @@ p.text-content{
 .grand-height{
     height: 100vh;
 }
+.p-t150{
+    padding-top: 150px;
+}
+.p-t50{
+    padding-top: 50px;
+}
+.p-t100{
+    padding-top: 100px;
+}
 /*------------- BOUTONS ---------------*/
 
 .mon-btn{
@@ -126,7 +135,7 @@ a{
     transition: var(--animate);
     z-index:999;
     /*box-shadow: 0px 2px 15px 2px rgba(150, 147, 147, 0.1);*/
-    box-shadow: 0px 11px 15px  rgba(174, 170, 207, 0.16);
+    box-shadow: 0px 11px 15px  rgba(174, 170, 207, 0.1);
 }
 .menu-toggle{
     display: none;
@@ -211,10 +220,14 @@ h1.main-titre{
     justify-content: flex-end;
 }
 .droit img{
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
+    margin: auto;
+    max-width: 100%;
 }
-
+.image-dev-junior{
+    object-fit: cover;
+}
 p.text-hero{
     color: var(--contenu-color);
     margin-top: 50px;
@@ -225,9 +238,14 @@ p.text-hero{
     color: var(--black-color);
     background-color: var(--secondary-color);
     border: solid 2px var(--secondary-color);
-    margin-left: 15px;
+    /* margin-left: 15px; */
     margin-top: 0;
-    width: 60%;
+    width: 100%;
+    
+}
+.gestion-btn{
+    max-width: 175px;
+    margin-left: 15px;
 }
 .btn-lancer:hover{
     color: var(--black-color);
@@ -235,15 +253,36 @@ p.text-hero{
 }
 
 .container-search{
-    
     margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    padding: 1rem 2rem;
+    background-color: var(--white-color);
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, .15);
+    border-radius: var(--border-radius-main);
+}
+/* .container-search-soutient{
+    background-color: rgba(255,255,255,.2);
+} */
+.mon-d-flex{
+    display: flex;
+    align-items: center;
+    
+}
+.mon-d-flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 .container-pastille{
     margin-top: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-content: center;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 .container-pastille .span-langage{
     background-color: var(--primary-light-color);
@@ -253,6 +292,7 @@ p.text-hero{
     font-weight: 500;
     cursor: pointer;
     transition: var(--animate);
+    margin-top: 1rem;
 }
 .container-pastille .span-langage:hover{
     background-color: var(--primary-color);
@@ -274,7 +314,7 @@ p.text-hero{
 }
 .title-section h2{
     font-weight: 600;
-    font-size: var(--text-medium);
+    font-size: 2.5rem;
 }
 .bloc-explication{
     max-width: 350px;
@@ -284,27 +324,64 @@ p.text-hero{
     border-radius: var(--border-radius-main);
     box-shadow: var(--box-shadows-main);
 }
-.container-blocs-explication, .container-blocs-genius-mois{
+.container-blocs-genius-mois{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius-main);
+    margin-top: 50px;
+    padding: 0 20px 20px 20p
+}
+.container-blocs-explication{
+    margin-top: 50px;
 }
 .blocs-genius-mois{
-    max-width: 200px;
-    height: 200px;
+    max-width: 10rem;
+    height: 10rem;
     margin-top: 50px;
-    background-color: var(--grey-light-color);
     border-radius: var(--border-radius-main);
+}
+.blocs-genius-mois img{
+    overflow: hidden;
+    width: 100%;
 }
 .sous-genius{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--animate);
 }
 .sous-genius h3{
     font-weight: 600;
     text-align: center;
     margin-top: 15px;
     font-size: 20px;
+    cursor: pointer;
+}
+.sous-genius:hover{
+    color: var(--white-color);
+}
+
+.container-explication{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-explication img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.container-explication h3{
+    font-weight: 600;
+}
+.container-explication p{
+    text-align: center;
+    line-height: 1.6;
 }
 
 /*--------------------- SECTION REJOIGNEZ-NOUS ET ABONNE-TOI -------------------------*/
@@ -314,10 +391,40 @@ p.text-hero{
     background-color: var(--primary-color);
     border-radius: var(--border-radius-second);
     margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white-color);
+    padding: 0 50px;
+}
+.container-rejoignez h2{
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    font-weight: 600;
+}
+.container-rejoignez p{
+    line-height: 1.6;
+}
+.container-rejoignez img{
+    width: 300px;
+}
+.container-rejoignez ul{
+    padding-left: 0;
+}
+.container-rejoignez ul li{
+    list-style: none;
+    margin-bottom: .8rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    align-items: center;
+}
+.container-rejoignez ul li i{
+    color: var(--tertiary-color);
+    font-size: 2rem;
 }
 .container-abonne{
     margin: 0 auto;
-    margin-top: 50px;
 }
 .mon-i{
     font-size: 1.5rem;
@@ -326,7 +433,7 @@ p.text-hero{
 .footer{
     background-color: var(--black-color);
     color: var(--white-color);
-    padding: 50px 0;
+    padding: 50px 1rem;
     display: flex;
     align-content: center;
 }
@@ -351,6 +458,8 @@ p.description-footer{
     margin-bottom: 10px;
     transition: var(--animate);
     cursor: pointer;
+    font-weight: 300;
+    color: var(--grey-color);
 }
 .footer li:hover{
     text-decoration: underline;
@@ -381,7 +490,7 @@ p.description-footer{
 .hero-recherche{
     background-image: url("/assets/images/dev-junior2.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: 90% 10%;
     padding-top: 150px;
     width: 100%;
     position: relative;
@@ -407,13 +516,13 @@ p.description-footer{
 .centrer-h-recherche h2 span{
     font-weight: 600;
 }
-.form-resultats{
+/* .form-resultats{
     border: solid 1px var(--grey-light-color) !important;
     color: var(--white-color) !important;
 }
 .form-resultats::placeholder{
     color: var(--white-color) !important;
-}
+} */
 .title-section-recherche{
     display: flex;
     justify-content: space-between;
@@ -466,10 +575,43 @@ p.description-footer{
     color: var(--contenu-color);
     line-height: 1.6;
 }
+
+/*--------------------- RESULTAT RECHERCHE 2 -------------------------*/
+.ma-card-petite{
+    max-width: 20rem;
+    border-radius: var(--border-radius-main);
+    border: 1px solid var(--contenu-color);
+    overflow: hidden;
+    transition: var(--animate);
+    cursor: pointer;
+}
+.ma-card-petite:hover{
+    cursor: pointer;
+    border: 1px solid var(--primary-color) !important;
+    box-shadow: var(--box-shadows-main);
+}
+.ma-card-petite img{
+    transition: var(--animate);
+}
+.ma-card-petite img:hover{
+    transform: scale(1.02);
+}
+.card-title-petite{
+    color: var(--contenu-color);
+    font-weight: 400;
+}
+/* ------------- TEAM -------------*/
+.team {
+    padding-top: 150px;
+}
+.container-blocs-team{
+    margin-top: 2rem;
+}
+
 /* ------------- FORMULAIRE -------------*/
 
 .formulaire{
-    width: 60vh;
+    max-width: 60vh;
     background-color: var(--white-color);
     border-radius: 10px;
     padding: 30px;
@@ -477,7 +619,7 @@ p.description-footer{
     /* box-shadow: var(--box-shadows-main); */
 }
 .formulaire-inscription{
-    width: 50rem;
+    max-width: 50rem;
     background-color: var(--white-color);
     border-radius: 10px;
     padding: 30px;
@@ -503,23 +645,68 @@ p.bas-formulaire{
 input::placeholder{
     font-weight: 400;
 }
-input[type=text], input[type=tel], 
+input[type=text], input[type=tel], .mon-select,
 input[type=search], input[type=file], 
-input[type=email], input[type=password] {
+input[type=email], input[type=password], .form-control {
     padding: 12px 20px;
     background-color: transparent !important;
     color: var(--grey-color);
     font-weight: 600;
     border: solid 1px var(--contenu-color);
 }
- input[type=search]:focus, input[type=email]:focus,
+ input[type=search]:focus, input[type=email]:focus, .mon-select:focus,
  input[type=text]:focus, input[type=tel]:focus, input[type=file]:focus, 
   input[type=password]:focus {
     box-shadow: none;
     border: solid 1px var(--primary-color);
     color: var(--contenu-color);
 }
+label{
+    font-weight: 500;
+}
+.erreur{
+    background-color: var(--quaternary-light-color);
+    /* color: #e53838; */ color: var(--quaternary-color);
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 60%;
+}
 
+.mon-icon-error{
+    background-color: var(--quaternary-color);
+    color: var(--white-color);
+    width: 25px;
+    height: 25px;
+    margin-right: 2rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success{
+    background-color: #CEF0E2;
+    /* color: #17b978; */ color: #17b978;
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 20px;
+    width: 60%;
+}
+
+.mon-icon-succes{
+    background-color: #17b978;
+    color: var(--white-color);
+    width: 25px;
+    height: 25px;
+    margin-right: 2rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 /* ------------- Styliser un peu le CHECKBOX -------------*/
 input[type=checkbox]{
     cursor: pointer;
@@ -580,7 +767,7 @@ input[type=checkbox]{
 [type="checkbox"]:disabled:not(:checked) + label::before,
 [type="checkbox"]:disabled:checked + label::before {
 	box-shadow: none;
-	border-color: var(--contenu-color)
+	border-color: var(--contenu-color);
 	background-color: var(--grey-light-color);
 }
 
@@ -725,19 +912,19 @@ input[type=checkbox]{
     .text-content{
         width: 90%;
     }
-    .container-rejoignez{
-        margin-left: 15px;
-        margin-right: 15px;
-    }
     section{
         padding-left: 15px;
         padding-right: 15px;
     }
 
-    .footer{
-        padding-left: 15px;
-        padding-right: 15px;
+    .gestion-btn{
+        max-width: 110px;
+        width: auto;
     }
+    .gestion-btn span{
+        display: none;
+    }
+
 }
 
 @media screen and (min-width:576px) and (max-width:768px){
@@ -858,10 +1045,6 @@ input[type=checkbox]{
     }
     .text-content{
         width: 90%;
-    }
-    .container-rejoignez{
-        margin-left: 15px;
-        margin-right: 15px;
     }
     section{
         padding-left: 15px;
@@ -988,8 +1171,8 @@ input[type=checkbox]{
     .text-content{
         width: 90%;
     }
-    .container-rejoignez{
-        margin-left: 15px;
-        margin-right: 15px;
+    section{
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
