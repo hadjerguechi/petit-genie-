@@ -13,7 +13,7 @@ class JobSearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('missiontitle',TextType::class,[
+            ->add('mission',TextType::class,[
                 "required"=>false,
                 "label"=>false,
                 "attr"=>[
@@ -28,7 +28,11 @@ class JobSearchType extends AbstractType
         $resolver->setDefaults([
             'data_class' => JobSearch::class,
             'method'=>'get',
-             'csrf_protection'=>false
+             'csrf_protection'=>false,
+
         ]);
+    }
+    public function getBlockPrefix(){
+        return '';
     }
 }

@@ -1,0 +1,14 @@
+
+<div class="container">
+{# {{ form_start(form)}}
+{{ form_row (form.mission)}} #}
+
+{# <button type="submit">Rechercher</button>
+{{ form_end(form)}} #}
+
+{% for job in jobs %}
+<div style="height:200px; border:2px solid red;">
+{{job.companyname}}
+<div>
+{% endfor %}
+</div>

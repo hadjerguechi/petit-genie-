@@ -6,29 +6,29 @@ class JobSearch{
     /**
      * @var string|null
      */
-    private $missiontitle;
+    private $mission;
 
 
     /**
-     * Get the value of missiontitle
+     * Get the value of mission
      *
      * @return  string|null
      */ 
-    public function getMissiontitle()
+    public function getMission()
     {
-        return $this->missiontitle;
+        return $this->mission;
     }
 
     /**
-     * Set the value of missiontitle
+     * Set the value of mission
      *
-     * @param  string|null  $missiontitle
+     * @param  string|null  $mission
      *
      * @return  self
      */ 
-    public function setMissiontitle(string $missiontitle)
+    public function setMission(string $mission)
     {
-        $this->missiontitle = $missiontitle;
+        $this->mission = $mission;
 
         return $this;
     }
