@@ -1,17 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Se connecter{% endblock %}
-
-
 {% block body %}
+{{ parent() }}
+
 <!--- LE CONTENU PRINCIPAL -->
-<main class="grand-height mon-d-flex">
+<main class="mon-d-flex p-t100">
+
 <!-- section connexion -->
 <section class="connexion">
 <div class="container">
 <div class="row">
 	<div class="col-12">
-    <form method="post">
+<form class="formulaire" method="post">
+
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -29,12 +31,12 @@
 </h3>
 <div class="mb-3">
 
-   <!-- <label for="inputEmail">E-mail</label> -->
+    <label for="inputEmail">E-mail</label> 
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
     </div>
 <div class="mb-3">
 
-   <!-- <label for="inputPassword">Mot de passe</label> -->
+   <label for="inputPassword">Mot de passe</label> 
 
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 </div>
@@ -53,7 +55,8 @@
         </div>
     #}
 <p class="container-envoye">
-<input type="submit" value="Se connecter">
+<input type="submit" class="btn mon-btn btn-connexion" value="Se connecter">
+
 </p>
 
 <p class="bas-formulaire"><span>Pas encore inscrit ?</span> • <a href="/register"><span>Créer un compte</span></a></p>
@@ -68,9 +71,6 @@
 </section>
 </main>
 
-<div class="copyright">
-	<p>© Little genius. Tous droits réservés.
-	</p>
-</div>
+
 
 {% endblock %}
