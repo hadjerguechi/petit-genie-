@@ -1,23 +1,71 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Inscription {% endblock %}
-  
-{% block body %}
-
-<div class="container">
-{{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
-{{ form_row(form.name)}}
-{{ form_row(form.firstname)}}
-{{ form_row(form.tel)}}
-{{ form_row(form.experience)}}
-{{ form_row(form.address)}}
-{{ form_row(form.langages)}}
-{{ form_row(form.photofile)}}
-{{ form_row(form.openwork)}}
-<button type="submit" class="btn btn-primary" >
-		Envoyer</button>
-	{{form_end(form)}}
-</div>
-
-
+{% block title %}Hello JobListController!
 {% endblock %}
+
+{% block body %}
+{{ parent() }}
+
+<body>
+<!--- LE CONTENU PRINCIPAL -->
+<main
+	class=" mon-d-flex">
+	<!-- section inscription -->
+	<section class="inscription p-t150">
+		<div class="container">
+	
+      {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class':"formulaire-inscription row"}})}}
+				<p>
+					<a class="navbar-brand" href="#"><img class="logo" src="./assets/images/logo.svg" alt="Social network"></a>
+				</p>
+				<h3 class="mb-4">Inscription candidat</h3>
+				<div class="mb-3 col-md-6 col-12 col-sm-12">
+					<label for="name" class="form-label">Ton nom</label>
+				
+           {{ form_widget(form.name)}}
+
+				</div>
+				<div class="mb-3 col-md-6 col-12 col-sm-12">
+					<label for="firstname" class="form-label">Ton prénom</label>
+        {{ form_widget(form.firstname)}}
+
+				</div>
+
+				<div class="mb-3 col-md-6 col-12 col-sm-12">
+					<label for="tel" class="form-label">Ton numéro de téléphone	</label>
+          {{ form_widget(form.tel)}}
+				</div>
+
+				<div class="mb-3 col-md-6 col-12 col-sm-12">
+					<label for="experience" class="form-label">Ton expérience</label>
+          {{ form_widget(form.experience,{'class':"mon-select"})}}
+				</div> 
+
+				<div class="mb-3 col-12 col-12 col-sm-12">
+					<label for="ville" class="form-label">Ta ville</label>
+         {{ form_widget(form.address, {'label' : 'Ta ville'})}}
+				</div>
+				<div class="mb-3 col-md-6 col-12 col-sm-12">
+					<label for="langages" class="form-label">Langages</label>
+         {{ form_widget(form.langages , {'class':"mon-select"})}}
+				</div>
+				<div class="mb-3 col-md-6 col-12 col-sm-12">
+           {{ form_row(form.photofile)}}
+				</div>
+				<div class="mb-3">
+           {{ form_widget(form.openwork)}}
+				</div>
+        
+         <p class="container-envoye col-12">
+
+					<button type="submit" class="btn mon-btn btn-connexion">Rejoins Little Genius</button>
+				</p>
+			</div>
+		{{form_end(form)}}
+	</section>
+</main>
+</body>
+
+   {% endblock %}
+
+
+

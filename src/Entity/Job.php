@@ -9,11 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=JobRepository::class)
+ * @ORM\Table(name="job", indexes={@ORM\Index(columns={"missiontitle","description"}, flags={"fulltext"})})
  */
 class Job
 {
     const TYPE = [
-        "CDI" => "CDI",
+        "CDI" => "CDI",  
         "CDD" => "CDD",
         "Stage" => "Stage",
     ];

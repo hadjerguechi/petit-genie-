@@ -103,51 +103,15 @@
 						</p>
 					</div>
 				</div>
-				{% for candidat in candidats %}
-					<div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-						<div class="blocs-genius-mois">
-							<img src="uploads/images/{{candidat.photo}}">
-						</div>
-						<h3>{{candidat.name}}</h3>
-					</div>
-				{% endfor %}
 				<div class="row container-blocs-genius-mois">
-					<div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-						<div class="blocs-genius-mois">
-							<img src="/assets/images/g1.jpg" alt="start-up 1" class="img-fluid">
-						</div>
-						<h3>Développeur Back-End</h3>
-					</div>
-					<div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-						<div class="blocs-genius-mois">
-							<img src="/assets/images/g2.jpeg" alt="start-up 1" class="img-fluid">
-						</div>
-						<h3>Développeur Front-End</h3>
-					</div>
-					<div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-						<div class="blocs-genius-mois">
-							<img src="/assets/images/g3.jpeg" alt="start-up 1" class="img-fluid">
-						</div>
-						<h3>Product Designer</h3>
-					</div>
-					<div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-						<div class="blocs-genius-mois">
-							<img src="/assets/images/g4.jpeg" alt="start-up 1" class="img-fluid">
-						</div>
-						<h3>Intégrateur Web</h3>
-					</div>
-					<div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-						<div class="blocs-genius-mois">
-							<img src="/assets/images/g5.jpeg" alt="start-up 1" class="img-fluid">
-						</div>
-						<h3>Développeur Symfony</h3>
-					</div>
-					<div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-						<div class="blocs-genius-mois">
-							<img src="/assets/images/g6.jpeg" alt="start-up 1" class="img-fluid">
-						</div>
-						<h3>Développeur Java</h3>
-					</div>
+                    {% for candidat in candidats %}
+                        <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+                            <div class="blocs-genius-mois">
+							    <img src="uploads/images/{{candidat.photo}}" alt="start-up 1" class="img-fluid">
+                            </div>
+                            <h3>{{candidat.name}}</h3>
+                        </div>
+                    {% endfor %}
 				</div>
 			</div>
 		</section>

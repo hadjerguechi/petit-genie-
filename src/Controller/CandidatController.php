@@ -26,8 +26,8 @@ class CandidatController extends AbstractController
        
         $form = $this->createForm(CandidatType::class, $candidat);
         $form->handleRequest($request);
+        
         if ($form->isSubmitted() && $form->isValid()) {
-          
             $photo = $form->get('photofile')->getData();
              $fichier = md5(uniqid()) . '.' . $photo->guessExtension();
              $photo->move(
@@ -43,9 +43,11 @@ class CandidatController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
             $em->flush();
+            return $this->redirectToRoute("home");
             }
+        
         }
-            
+         
         return $this->render('candidat/index.html.twig', [
             'form' => $form->createView(), "candidat" => $candidat
         ]);
