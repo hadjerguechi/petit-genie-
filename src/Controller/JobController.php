@@ -3,15 +3,37 @@
 namespace App\Controller;
 
 use App\Entity\Job;
-use App\Entity\Recruteur;
+use App\Entity\JobSearch;
+use App\Form\JobSearchType;
 use App\Form\JobType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 class JobController extends AbstractController
 {
+  /**
+   * @Route("/offres", name="offres")
+   */
+  public function readall(Request $request, PaginatorInterface $paginator):Response{
+   
+    // $search= new JobSearch();
+    // $form=$this->createForm(JobSearchType::class,$search);
+    // $form->handleRequest($request);
+    $donnees= $this->getDoctrine()->getRepository(Job::class)->findAll();
+    $jobs=  $paginator->paginate(
+      $donnees,
+      $request->query->getInt('page',1),
+      4
+    );
+
+    return $this->render("job/readAll.html.twig",["jobs"=>$jobs,]
+                         );
+
+  }
     /**
      * @Route("/job", name="job")
      */

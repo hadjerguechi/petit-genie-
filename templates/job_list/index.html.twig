@@ -18,13 +18,21 @@
 							ici</h2>
 
 						<div class="container-search">
-							<form class="d-flex col-12">
-								<input class="form-control me-2 form-resultats" type="search" placeholder="PHP, Vue.js, JavaScript,…" aria-label="Search">
-								<button class="btn mon-btn btn-lancer gestion-btn" type="submit">
-									<i class="mon-i fas fa-search"></i>
-									<span>&nbsp; Lance-toi !</span>
-								</button>
-							</form>
+							<div class="d-flex col-12">
+                             {{ form_start(form,{'attr': {'class':"d-flex col-12"}})}}
+                             {{ form_widget(form.mots,{'attr': {'class':' me-2 '}}) }}
+
+
+                              <button class="btn mon-btn btn-lancer gestion-btn" type="submit">
+								<i class="mon-i fas fa-search"></i>
+								<span>&nbsp; Lance-toi !</span></button>
+
+                                    {{ form_end(form) }}
+
+								{# <input class="form-control me-2 form-resultats" type="search" placeholder="PHP, Vue.js, JavaScript,…" aria-label="Search"> #}
+								{# <button class="btn mon-btn btn-lancer gestion-btn" type="submit"> #}
+								
+							</div>
 						</div>
 					</div>
 				</div>
@@ -36,7 +44,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="title-section-recherche col-12 col-sm-12 col-md-12 col-lg-12">
-						<h5>Nombre total de la recherche</h5>
+                    <h5>Nombre total de la recherche ({{ jobs.getTotalItemCount }})</h5>
+
 						<h6>Filtrer</h6>
 					</div>
 				</div>
@@ -74,8 +83,17 @@
 				</div>
 			</div>
 			{% endfor %}
+
+				<div style="margin-left:200px; color:red;">
+					{{ knp_pagination_render(jobs) }}
+				</div>
+
+         </div> 
+
 		</section>
 	</main>
+
+
 </body>
 </html>
 {% endblock %}

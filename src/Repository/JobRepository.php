@@ -47,4 +47,18 @@ class JobRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @return void
+     */
+    public function search($mots){
+        $query= $this->createQueryBuilder('j');
+        // $query->where('a.active = 1');
+        if($mots != null){
+            $query->andWhere('MATCH_AGAINST(j.missiontitle, j.description) AGAINST (:mots boolean)>0')
+            ->setParameter('mots', $mots);
+            return $query->getQuery()->getResult();
+        }
+
+    }
 }

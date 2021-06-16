@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello JobListController!
+{% endblock %}
+
+{% block body %}
+{{ parent() }}
+<!--- LE CONTENU PRINCIPAL -->
+<main
+	class="mon-d-flex">
+	<!-- section inscription -->
+	<section class="choix">
+		<div class="container">
+			<div class="row row-cols-1 row-cols-md-3 g-4 pt-5 container-choice">
+				<div class="container-bloc-choice">
+					<div class="bloc-choice bloc-choice-recrut">
+						<h2>
+							<a href="/">Je suis Recruteur</a>
+						</h2>
+					</div>
+				</div>
+				<div class="container-bloc-choice">
+					<div class="bloc-choice bloc-choice-candi">
+						<h2>
+                        <a href="/">Je suis Candidat</a>
+
+						</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</main>
+
+{% endblock %}

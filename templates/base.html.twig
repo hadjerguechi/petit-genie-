@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
     <head>
-        <meta charset="UTF-8">
-            <title>{% block title %}Welcome!{% endblock %}</title>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>{% block title %}{% endblock %}</title>
             {% block stylesheets %}
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
             <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -61,12 +63,20 @@
                             </nav>
 
                             <div class="container-nav-droit">
-                            <a href="/recruteur" class="mon-btn-border btn-recruteur">
-                                Recruteur 
+                            {% if  app.user %}
+                           
+                            <a href="/choice" class="mon-btn-border btn-recruteur">
+                                Gérer mon compte
                                 </a>
+                             <a href="/logout" class="mon-btn btn-connecter">
+                               Se deconnecter
+                                </a>
+                               {% else %}
                                 <a href="/login" class="mon-btn btn-connecter">
                                 Se connecter
                                 </a>
+                              {% endif %}
+
                             </div>
 
                         </div>
@@ -86,13 +96,15 @@
                     Lorem ipsum dolor sit amet, ipsum dolor sit consectetur 
                 </p>
                 <div class="div-social">
-                    <a class="social-bouton" href="#">
-                        <i class="fab fa-facebook-f"></i>
+                <a class="social-bouton" href="https://fr-fr.facebook.com/">
+                <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a class="social-bouton" href="#">
+                <a class="social-bouton" href="https://twitter.com/?lang=fr">
+
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a class="social-bouton" href="#">
+                 <a class="social-bouton" href="https://www.instagram.com/?hl=fr">
+
                         <i class="fab fa-instagram-square"></i>
                     </a>
                 </div>
