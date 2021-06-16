@@ -28,6 +28,7 @@ class RecruteurController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($recruteur);
             $em->flush();
+            return $this->redirectToRoute('home');
             }
         }
         return $this->render('recruteur/index.html.twig', [
