@@ -4,29 +4,88 @@
 {% endblock %}
 
 {% block body %}
+{{ parent()}}
+<!--- LE CONTENU PRINCIPAL -->
+<body>
+<main class="mon-d-flex">
+	<section class="profil p-t150">
+		<div class="container">
+			<div class="container-profil col-12">
+				<div class="col-12 col-sm-12 col-md-3 col-lg-3 side-profil">
+					<h4>Mon profil</h4>
+					<div class="container-img-profil">
+						<img src="/uploads/images/{{candidat.photo}}" alt="start-up 1" class="img-fluid">
+					</div>
+					<ul>
+						<li>
+							<a href="/">
+								<i class="fas fa-home"></i>
+								<span>&nbsp; Accueil</span>
+							</a>
+						</li>
+						<li>
+							<a href="/candidat/delete">
+								<i class="fas fa-trash"></i>
+								<span>&nbsp; Supprimer</span>	
+							</a>
+						</li>
+					</ul>
+				</div>
+			<div class="col-12 col-sm-12 col-md-9 col-lg-9 droit-profil">
+		   		{{ form_start(form ,{'attr': { 'class': 'formulaire-profil row'}}) }}
+				<h4 class="w-100">Modifier</h4>
+				<div class="mb-3 col-md-6 col-12 col-sm-12">
+					<label for="name" class="form-label">Ton nom</label>
+						{{ form_widget(form.name , {'class' : 'form-control'})}}
 
-<div class="container">
-{# <form method="post">
-<input type="text" value={{candidat.name}}>
 
-<form> #}
-{{ form_start(form) }}
+					{# <input type="text" class="form-control" id="name" name="name" placeholder=" Ton Nom" minlength="2" require> #}
+				</div>
 
-{{ form_row(form.name)}}
-{{ form_row(form.firstname)}}
-{{ form_row(form.tel)}}
-{{ form_row(form.experience)}}
-{{ form_row(form.address)}}
-{{ form_row(form.langages)}}
-{{ form_row(form.photofile)}}
-{{ form_row(form.openwork)}}
+				<div class="mb-3 col-md-6 col-12 col-sm-12">
+					<label for="firstname" class="form-label">Ton prénom</label>
+			             {{ form_widget(form.firstname , {'class' : 'form-control'})}}
 
-<button type="submit" class="btn btn-primary">
-	Envoyer</button>
-{{ form_end(form) }}
+						{# <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Ton prénom" minlength="2" require> #}
+				</div>
+		      	<div class="mb-3 col-md-6 col-12 col-sm-12">
+			           {{ form_widget(form.tel , {'class' : 'form-control'})}}
 
+			    </div>
+			    <div class="mb-3 col-md-6 col-12 col-sm-12">
+			          {{ form_widget(form.experience, {'class' : 'form-select mon-select'})}}
+		     	</div>
+                <div class="mb-3 col-12 col-12 col-sm-12">
 
-</div>
+			         {{ form_widget(form.address , {'class' : 'form-control'})}}
+
+			    </div>
+			    <div class="mb-3 col-md-6 col-12 col-sm-12">
+			     <label for="langages" class="form-label">Langages</label>
+		          	{{ form_widget(form.langages ,{'class':'form-select mon-select'})}}
+		      	</div>
+			    <div class="mb-3 col-md-6 col-12 col-sm-12">
+			    <label for="photofile" class="form-label">Une petite photo</label>
+			       {{ form_widget(form.photofile,{'class' : 'form-control' })}}
+
+			     </div>
+			    <div class="mb-3">
+			      {{ form_row(form.openwork)}}
+			    </div>
+				
+			    <p class="container-envoye">
+				   <button type="submit" class="btn mon-btn btn-connexion">Rejoins Little Genius</button>
+			    </p>
+
+			    {{ form_end(form) }}
+
+			</div>
+		</div>
+		</div>
+	</section>
+</main>
+</body>
+
 
 
 {% endblock %}

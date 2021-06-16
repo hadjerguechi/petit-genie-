@@ -104,7 +104,7 @@ class CandidatController extends AbstractController
              $em1->persist($candidat);
              $em1->flush();
              $this->addFlash('message','Profil mis à jour');
-              return $this->redirectToRoute('profil');
+              return $this->redirectToRoute('home');
           }
           
          return $this->render("candidat/edit.html.twig",['form' => $form->createView(),"candidat"=>$candidat]);
