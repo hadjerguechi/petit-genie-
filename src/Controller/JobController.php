@@ -54,7 +54,7 @@ class JobController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($job);
             $em->flush();
-            return $this->redirectToRoute("profil-recruteur");
+            return $this->redirectToRoute("app-recruteur-update");
         }
          }else {
         return $this->redirectToRoute("home");
