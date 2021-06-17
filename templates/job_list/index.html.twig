@@ -27,7 +27,7 @@
 			</div>
 		</section>
 		<!-- section resultats recherche -->
-		<section class="resultats-recherche color-title-resultats">
+		<section class="resultats-recherche color-title-resultats pb-4 pt-4">
 			<div class="container">
 				<div class="row">
 					<div class="title-section-recherche col-12 col-sm-12 col-md-12 col-lg-12">
@@ -58,9 +58,10 @@
 											<small class="text-muted">
 												<i class="fas fa-briefcase"></i>&nbsp; {{job.type}}</small>
 										</li>
-										<li class="card-text">
+										<li class="card-text d-flex justify-content-between">
 											<small class="text-muted">
-												<i class="far fa-clock"></i>&nbsp; Mise en ligne le : {{job.date|date("m/d/Y")}}</small>
+												<i class="far fa-clock"></i>&nbsp; Mise en ligne le : {{job.date|date("m/d/Y")}}
+											</small>
 										</li>
 									</ul>
                                    
@@ -72,7 +73,8 @@
 				</div>
 			</a>
 			{% endfor %}
-				<div style="margin-left:200px; color:red;">
+			</div>
+				<div class="d-flex-center text-alert">
 					{{ knp_pagination_render(jobs) }}
 				</div>
          	</div> 
