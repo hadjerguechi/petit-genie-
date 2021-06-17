@@ -39,6 +39,8 @@ class JobController extends AbstractController
      */
     public function index(Request $request): Response
     {
+
+      
         if($this->getUser()){
         $id = $this->getUser()->getId();
         $em = $this->getDoctrine()->getManager();

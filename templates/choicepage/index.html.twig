@@ -7,9 +7,22 @@
 <main class="mon-d-flex">
 	<section class="choix">
 		<div class="container">
+
+
+<div style="margin-top:50px;">
+{% for message in app.flashes('danger') %}
+	<div class="alert alert-danger" role="alert">
+
+		{{ message }}
+	</div>
+{% endfor %}
+</div>
+
+
 			<div class="row row-cols-1 row-cols-md-3 g-4 pt-5 container-choice">
 				<div class="container-bloc-choice">
 					<div class="bloc-choice bloc-choice-recrut">
+
 						<h2>
 							<a href="/recruteur">Je suis Recruteur</a>
 						</h2>

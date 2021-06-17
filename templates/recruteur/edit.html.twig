@@ -3,14 +3,73 @@
 {% block title %}Modifier profil{% endblock %}
 
 {% block body %}
+{{ parent() }}
+<body>
+<main class="mon-d-flex">
+<!-- section inscription -->
+<section class="profil p-t150">
 <div class="container">
-	{{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
-	{{ form_row(form.companyname)}}
-	{{ form_row(form.contactname)}}
-	{{ form_row(form.description)}}
-	{{ form_row(form.contactemail)}}
-	{{ form_row(form.phonenumber)}}
-	<button type="submit" class="btn btn-primary">Envoyer</button>
-	{{ form_end(form) }}</div>
-{% endblock %}
+<div class="container-profil col-12">
+<div class="col-3 side-profil">
+<h4>Mon profil</h4>
+<div class="container-img-profil">
+<img src="/assets/images/photo-recruteur.svg" alt="start-up 1" class="img-fluid">
+</div>
+<ul>
+	<li>
+		<a href="/" active>
+			<i class="fas fa-home"></i>&nbsp; Accueil</a>
+	</li>
+	<!--<li><a href=""><i class="fas fa-pen"></i>&nbsp; modifier</a></li>-->
+	<li>
+     <a href="/job">
+
+			<i class="far fa-plus-square"></i>&nbsp; Créer une annonce</a>
+	</li>
+	<li>
+    <a href="/job/annonce">
+
+			<i class="fas fa-list-alt"></i>&nbsp; Toutes mes annonces</a>
+	</li>
+	<li>
+     <a href="/recruteur/delete">
+
+			<i class="fas fa-trash"></i>&nbsp; Supprimer</a>
+	</li>
+</ul></div>
+<div class="col-12 col-sm-12 col-md-9 col-lg-9 droit-profil">
+
+	<form class="formulaire-profil row" method="POST">
+		{{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
+
+		<div class="mb-3 col-md-6 col-12 col-sm-12">
+			{{ form_row(form.companyname)}}
+		</div>
+
+		<div class="mb-3 col-md-6 col-12 col-sm-12">
+			{{ form_row(form.contactname)}}
+		</div>
+
+
+		<div class="mb-3 col-md-6 col-12 col-sm-12">
+			{{ form_row(form.contactemail)}}
+		</div>
+
+		<div class="mb-3 col-md-6 col-12 col-sm-12">
+			{{ form_row(form.phonenumber)}}
+		</div>
+
+
+		<div class="mb-3 col-md-12 col-12 col-sm-12">
+			{{ form_row(form.description)}}
+		</div>
+
+		<p class="container-envoye">
+			<a href="#"></a>
+			<button type="submit" class="btn mon-btn btn-connexion">Modifier mon profil</button>
+		</p>
+	</a>
+</p>
+{{ form_end(form) }}</form></div></div></div></section></main></body>{% endblock %}
+
 
