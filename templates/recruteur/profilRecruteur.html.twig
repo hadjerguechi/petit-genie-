@@ -1,26 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<h1>Mon profil</h1>
-	
-	{{ recruteur.companyname}}
-<p>Description:{{recruteur.description}}</p>
-
-	<p>Contact:
-{{ recruteur.contactname}}</p>
-
-	<p>Mon adresse email:
-{{recruteur.contactemail}}</p>
-	<p>Mon numero :
-{{recruteur.phonenumber}}</p>
-
-	
+<h1>Mon profil</h1>
+{{ recruteur.companyname}}
+<p>Description: {{recruteur.description}}</p>
+<p>Contact: {{ recruteur.contactname}}</p>
+<p>Mon adresse email: {{recruteur.contactemail}}</p>
+<p>Mon numero : {{recruteur.phonenumber}}</p>
 <a href="/recruteur/update" class="btn btn-primary">Modifier profil</a>
 <a href="/recruteur/delete" class="btn btn-danger">Supprimer profil</a>
 <a href="/job" class="btn btn-warning">Créer une annonce</a>
 <a href="/job/annonce" class="btn btn-info">Mes annonces</a>
-
-
-
-
 {% endblock %}

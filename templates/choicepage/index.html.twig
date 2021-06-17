@@ -1,13 +1,10 @@
 {% extends 'base.html.twig' %}
-{% block title %}Choix profil
-{% endblock %}
+
+{% block title %}Choix profil{% endblock %}
 
 {% block body %}
 {{ parent() }}
-<!--- LE CONTENU PRINCIPAL -->
-<main
-	class="mon-d-flex">
-	<!-- section inscription -->
+<main class="mon-d-flex">
 	<section class="choix">
 		<div class="container">
 			<div class="row row-cols-1 row-cols-md-3 g-4 pt-5 container-choice">
@@ -22,14 +19,12 @@
 					<div class="bloc-choice bloc-choice-candi">
 						<h2>
                         <a href="/candidat">Je suis Candidat</a>
-
 						</h2>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
 </main>
 
 {% endblock %}

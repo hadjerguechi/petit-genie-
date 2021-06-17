@@ -4,16 +4,11 @@
 
 {% block body %}
 {{ parent() }}
-
 <body>
-<!--- LE CONTENU PRINCIPAL -->
-<main
-	class=" mon-d-flex">
-	<!-- section inscription -->
-	<section class="inscription p-t150">
-		<div class="container">
-	
-      {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class':"formulaire-inscription row"}})}}
+	<main class=" mon-d-flex">
+		<section class="inscription p-t150">
+			<div class="container">
+      		{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class':"formulaire-inscription row"}})}}
 				<p>
 					<a class="navbar-brand" href="#"><img class="logo" src="./assets/images/logo.svg" alt="Social network"></a>
 				</p>
@@ -21,51 +16,48 @@
 				<div class="mb-3 col-md-6 col-12 col-sm-12">
 					<label for="name" class="form-label">Ton nom</label>
 				
-           {{ form_widget(form.name)}}
-
+           			{{ form_widget(form.name)}}
 				</div>
 				<div class="mb-3 col-md-6 col-12 col-sm-12">
 					<label for="firstname" class="form-label">Ton prénom</label>
-        {{ form_widget(form.firstname)}}
+			        {{ form_widget(form.firstname)}}
 
 				</div>
-
 				<div class="mb-3 col-md-6 col-12 col-sm-12">
 					<label for="tel" class="form-label">Ton numéro de téléphone	</label>
-          {{ form_widget(form.tel)}}
+					{{ form_widget(form.tel)}}
+			
 				</div>
-
 				<div class="mb-3 col-md-6 col-12 col-sm-12">
 					<label for="experience" class="form-label">Ton expérience</label>
-          {{ form_widget(form.experience,{'class':"mon-select"})}}
+          			{{ form_widget(form.experience,{'class':"mon-select"})}}
+				
 				</div> 
-
 				<div class="mb-3 col-12 col-12 col-sm-12">
 					<label for="ville" class="form-label">Ta ville</label>
-         {{ form_widget(form.address, {'label' : 'Ta ville'})}}
+					{{ form_widget(form.address, {'label' : 'Ta ville'})}}
+			
 				</div>
 				<div class="mb-3 col-md-6 col-12 col-sm-12">
 					<label for="langages" class="form-label">Langages</label>
-         {{ form_widget(form.langages , {'class':"mon-select"})}}
+         			{{ form_widget(form.langages , {'class':"mon-select"})}}
+				
 				</div>
 				<div class="mb-3 col-md-6 col-12 col-sm-12">
-           {{ form_row(form.photofile)}}
+           			{{ form_row(form.photofile)}}
 				</div>
 				<div class="mb-3">
-           {{ form_widget(form.openwork)}}
+           			{{ form_widget(form.openwork)}}
 				</div>
-        
-         <p class="container-envoye col-12">
-
+				<p class="container-envoye col-12">
 					<button type="submit" class="btn mon-btn btn-connexion">Rejoins Little Genius</button>
 				</p>
 			</div>
-		{{form_end(form)}}
-	</section>
-</main>
+			{{form_end(form)}}
+		</section>
+	</main>
 </body>
-
-   {% endblock %}
+{% endblock %}
 
 
 
