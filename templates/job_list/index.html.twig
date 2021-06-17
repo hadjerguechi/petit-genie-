@@ -19,8 +19,10 @@
 
 						<div class="container-search">
 							<div class="d-flex col-12">
-                             {{ form_start(form,{'attr': {'class':"d-flex col-12"}})}}
-                             {{ form_widget(form.mots,{'attr': {'class':' me-2 '}}) }}
+        {{ form_start(form,{'attr': {'class':"d-flex col-12" }})}}
+ 
+        {{ form_widget(form.mots,{'attr': {'class':' me-2 ' , 'minlength' : 4}}) }}
+
 
 
                               <button class="btn mon-btn btn-lancer gestion-btn" type="submit">

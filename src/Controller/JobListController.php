@@ -22,19 +22,22 @@ class JobListController extends AbstractController
         
         $form = $this->createForm(SearchJobType::class);
         $search= $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
-            $jobs= $jobrepository->search(
-           $search->get('mots')->getData() );  
-        }
-            $jobs =  $paginator->paginate(
+        
+            if ($form->isSubmitted() && $form->isValid()) {
+                $jobs = $jobrepository->search(
+                    $search->get('mots')->getData()
+                  
+                );
+          
+                  }
+       
+             $jobs =  $paginator->paginate(
                 $jobs,
                 $request->query->getInt('page', 1),
                 4
             );
-           
         
-       
-
+           
         return $this->render('job_list/index.html.twig', [
         'jobs' => $jobs, 'form'=>$form->createView()
         ]);

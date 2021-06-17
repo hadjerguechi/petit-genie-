@@ -51,11 +51,11 @@ class JobRepository extends ServiceEntityRepository
     /**
      * @return void
      */
-    public function search($mots){
+    public function search($mots = null){
         $query= $this->createQueryBuilder('j');
         // $query->where('a.active = 1');
         if($mots != null){
-            $query->andWhere('MATCH_AGAINST(j.missiontitle, j.description) AGAINST (:mots boolean)>0')
+            $query->where('MATCH_AGAINST(j.missiontitle, j.description) AGAINST (:mots boolean) >0')
             ->setParameter('mots', $mots);
             return $query->getQuery()->getResult();
         }

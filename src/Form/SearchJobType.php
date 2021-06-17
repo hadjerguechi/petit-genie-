@@ -15,10 +15,11 @@ class SearchJobType extends AbstractType
             ->add('mots', SearchType::class, [
                 'label'=>false,
                 
-                 'required'   => false,
+                 'required'   => true,
                    'attr'=> [
                      'class'=> 'form-control',
-                    'placeholder'=> "PHP, Vue.js, JavaScript,…"
+                    'placeholder'=> "PHP, Vue.js, JavaScript,…",
+                // 'minlength' => 4
                 ]
             ])
         ;

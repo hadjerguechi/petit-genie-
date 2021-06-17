@@ -8,6 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Candidat;
 use App\Form\CandidatType;
 use App\Form\EditCandidatType;
+use App\Repository\CandidatRepository;
+use App\Repository\RecruteurRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 //use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -20,8 +22,21 @@ class CandidatController extends AbstractController
     /**
      * @Route("/candidat", name="candidat")
      */
-    public function index(Request $request, UserPasswordHasherInterface $passwordHasher): Response
-    {  
+    public function index(Request $request, UserPasswordHasherInterface $passwordHasher , CandidatRepository $repository, RecruteurRepository $recruteurRepository): Response
+    {   
+        
+        $iduser= $this->getUser()->getId();
+        $idrec= $recruteurRepository->findOneBy(['id_user' => $iduser]);
+        if($idrec)
+        {
+            $this->addFlash('danger', 'apparamment vous êtes perdu !');
+
+            return $this->redirectToRoute("choice");
+        }
+        $idCandidat = $repository->findOneBy(['id_user' => $iduser]);
+        if($idCandidat){
+            return $this->redirectToRoute("app-candidat-update");
+        }
         $candidat= new Candidat($passwordHasher);
        
         $form = $this->createForm(CandidatType::class, $candidat);
@@ -36,10 +51,8 @@ class CandidatController extends AbstractController
              );
             if ($this->getUser()) {
             $idUser =$this->getUser();
-
             $candidat->setIdUser($idUser);
             $candidat->setPhoto($fichier);
-            
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
             $em->flush();
