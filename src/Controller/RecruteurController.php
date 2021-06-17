@@ -8,6 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Recruteur;
 use App\Form\EditRecruteurType;
 use App\Form\RecruteurType;
+use App\Repository\CandidatRepository;
+use App\Repository\RecruteurRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -16,8 +18,20 @@ class RecruteurController extends AbstractController
     /**
      * @Route("/recruteur", name="recruteur")
      */
-    public function index(Request $request): Response
+    public function index(Request $request , RecruteurRepository $recruteurRepository , CandidatRepository $candidatRepository): Response
     {
+        $iduser = $this->getUser()->getId();
+        $idcandidat = $candidatRepository->findOneBy(['id_user' => $iduser]);
+        if ($idcandidat) {
+            $this->addFlash('danger', 'apparamment vous êtes perdu !');
+
+            return $this->redirectToRoute("choice");
+        }
+        $idRecruteur = $recruteurRepository->findOneBy(['id_user' => $iduser]);
+        if ($idRecruteur) {
+            return $this->redirectToRoute("app-recruteur-update");
+        }
+        
      $recruteur= new Recruteur();
         $form = $this->createForm(RecruteurType::class, $recruteur);
         $form->handleRequest($request);
@@ -78,7 +92,7 @@ class RecruteurController extends AbstractController
             $em1->persist($recruteur);
             $em1->flush();
             $this->addFlash('message', 'Profil mis à jour');
-            return $this->redirectToRoute('profil-recruteur');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render("recruteur/edit.html.twig", ['form' => $form->createView(), "candidat" => $recruteur]);
