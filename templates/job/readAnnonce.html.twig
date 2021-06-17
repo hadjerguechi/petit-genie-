@@ -3,6 +3,9 @@
 {% block body %}
 	{{ parent()}}
 	<div class="container p-t150"></div>
+    {% if annonces == NULL %}
+        <h3>Aucunes annonces en ligne.</h3>
+    {% endif %}
 	{% for annonce in annonces %}
 		<div class="row container-blocs-resultats">
 			<div class="container-resultats col-12 col-sm-12 col-md-12 col-lg-12">
@@ -32,12 +35,6 @@
 					</div>
 				</div>
 			</div>
-<<<<<<< HEAD
 		</div>
 	{% endfor %}
 </div>{% endblock %}
-=======
-            {% endfor %}
-            </div>
-{% endblock %}
->>>>>>> fa4c822db59eb821610367e15f510851bfca293d

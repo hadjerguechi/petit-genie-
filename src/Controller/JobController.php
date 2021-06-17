@@ -93,6 +93,6 @@ class JobController extends AbstractController
         $em= $this->getDoctrine()->getManager();
         $em->remove($job);
         $em->flush();
-        return $this->redirectToRoute("app-recruteur-update");
+        return $this->redirectToRoute("annonce");
       }
 }
