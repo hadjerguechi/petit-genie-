@@ -47,4 +47,17 @@ class CandidatRepository extends ServiceEntityRepository
         ;
     }
     */
+    /**
+     * @return void
+     */
+       public function search($mots = null)
+        {
+        $query = $this->createQueryBuilder('c');
+        // $query->where('a.active = 1');
+        if ($mots != null) {
+            $query->where('MATCH_AGAINST(c.name, c.firstname) AGAINST (:mots boolean) >0')
+            ->setParameter('mots', $mots);
+            return $query->getQuery()->getResult();
+        }
+    }
 }
