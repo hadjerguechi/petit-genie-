@@ -77,6 +77,7 @@ class Job
 
     /**
      * @ORM\ManyToOne(targetEntity=Recruteur::class, inversedBy="jobs")
+     * @ORM\JoinColumn(name="recruteur_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $id_recruteur;
 

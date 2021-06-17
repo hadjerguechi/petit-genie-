@@ -24,10 +24,11 @@
                         <li><a href=""><i class="fas fa-trash"></i>&nbsp; Supprimer</a></li>
                     </ul>
                 </div> #}
-                <div class="col-12 col-sm-12 col-md-9 col-lg-9 droit-profil">
+                {# <div class="col-12 col-sm-12 col-md-9 col-lg-9 droit-profil">
                     
-                    <form class="formulaire-profil row" method="POST">
-                        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
+                    {# <form class="formulaire-profil row" method="POST"> #}
+                    {# {{ form_start(form, {'attr': {'novalidate': 'novalidate' , 'class':'formulaire-profil row'}})}}
+
 
                         <div class="mb-3 col-md-6 col-12 col-sm-12">
                             {{ form_row(form.companyname)}}
@@ -35,10 +36,10 @@
     
                         <div class="mb-3 col-md-6 col-12 col-sm-12">
                             {{ form_row(form.contactname)}} 
-                        </div>
+                        </div> #}
     
     
-                        <div class="mb-3 col-md-6 col-12 col-sm-12">
+                        {# <div class="mb-3 col-md-6 col-12 col-sm-12">
                             {{ form_row(form.contactemail)}}
                         </div>
                         <ul>
@@ -47,7 +48,7 @@
                             <li><a href=""><i class="fas fa-list-alt"></i>&nbsp; Toutes mes annonces</a></li>
                             <li><a href=""><i class="fas fa-trash"></i>&nbsp; Supprimer</a></li>
                         </ul>
-                    </div>
+                    </div>  #}
                     <div class="col-12 col-sm-12 col-md-9 col-lg-9 droit-profil">
                         <form class="formulaire-profil row" method="POST">
                             {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}

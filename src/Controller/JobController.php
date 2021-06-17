@@ -6,7 +6,7 @@ use App\Entity\Job;
 use App\Entity\JobSearch;
 use App\Form\JobSearchType;
 use App\Form\JobType;
-
+use App\Repository\JobRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,9 +20,6 @@ class JobController extends AbstractController
    */
   public function readall(Request $request, PaginatorInterface $paginator):Response{
    
-    // $search= new JobSearch();
-    // $form=$this->createForm(JobSearchType::class,$search);
-    // $form->handleRequest($request);
     $donnees= $this->getDoctrine()->getRepository(Job::class)->findAll();
     $jobs=  $paginator->paginate(
       $donnees,
@@ -34,6 +31,7 @@ class JobController extends AbstractController
                          );
 
   }
+  
     /**
      * @Route("/job", name="job")
      */
@@ -54,7 +52,7 @@ class JobController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($job);
             $em->flush();
-            return $this->redirectToRoute("profil-recruteur");
+            return $this->redirectToRoute("app-recruteur-update");
         }
          }else {
         return $this->redirectToRoute("home");
@@ -73,5 +71,17 @@ class JobController extends AbstractController
         $id_recruteur=$recruteur->getId();
         $job = $em->getRepository("App\Entity\Job")->findBy(array("id_recruteur" =>$id_recruteur));
         return $this->render("/job/readAnnonce.html.twig",["annonces"=>$job]);
+      }
+
+
+      /**
+       *@Route("/job/delete/{id}/" , name="delete-annonce")
+       */
+      public function delitAnnonce(Job $job){
+  
+        $em= $this->getDoctrine()->getManager();
+        $em->remove($job);
+        $em->flush();
+        return $this->redirectToRoute("app-recruteur-update");
       }
 }
