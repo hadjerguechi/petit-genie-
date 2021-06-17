@@ -39,7 +39,8 @@
 		</section>
 		<section class="resultats-recherche">
 			{% for job in jobs %}
-			<div class="row container-blocs-resultats">
+             <a href="/offre/read/{{job.id}}" class="row container-blocs-resultats">
+
 				<div class="container-resultats col-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="card mb-5 ma-card">
 						<div class="row g-0">
@@ -62,12 +63,14 @@
 												<i class="far fa-clock"></i>&nbsp; Mise en ligne le : {{job.date|date("m/d/Y")}}</small>
 										</li>
 									</ul>
+                                   
+
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</a>
 			{% endfor %}
 				<div style="margin-left:200px; color:red;">
 					{{ knp_pagination_render(jobs) }}

@@ -31,7 +31,18 @@ class JobController extends AbstractController
                          );
 
   }
+  /**
+   *@Route("/offre/read/{id}", name="offre-read")
+   */
+   public function readJob(Job $job):Response{
+    
+    return $this->render("job/annonce.html.twig", [
+      "job"=>$job ]);
+   }
   
+
+
+
     /**
      * @Route("/job", name="job")
      */
