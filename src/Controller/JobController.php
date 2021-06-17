@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Job;
 use App\Entity\JobSearch;
-use App\Form\JobSearchType;
+use App\form\JobSearchType;
 use App\Form\JobType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

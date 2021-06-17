@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GeniusListController!{% endblock %}
+{% block title %}Nos Genius{% endblock %}
 
 {% block body %}
 <body>
@@ -28,13 +28,11 @@
           </div>
         </section>
         <!-- section resultats recherche -->
-        <section class="resultats-recherche color-title-resultats">
+        <section class="resultats-recherche color-title-resultats  pt-4 pb-4">
             <div class="container">
               <div class="row">
                 <div class="title-section-recherche col-12 col-sm-12 col-md-12 col-lg-12">
                 <h5>Nombre total de la recherche ({{ candidats.getTotalItemCount }})</h5>
-
-                  <h6>Filtrer</h6>
                 </div>
               </div>
             </div>
@@ -51,13 +49,14 @@
                                 <p>{% for langue in candidat.langages %}
                                     {{langue}}
                                 {% endfor %}</p>
+
                             </div>
                         </div>
                     </div> 
                 {% endfor %}
                  <div style="margin-left:200px; color:red;">
-	              {{ knp_pagination_render(candidats) }}
-                        </div>
+	                {{ knp_pagination_render(candidats) }}
+                </div>
 
                     {# <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
                         <div class="card ma-card-petite">
