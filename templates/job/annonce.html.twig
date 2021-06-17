@@ -1,1 +1,53 @@
-{{job.companyname}}
+{% extends 'base.html.twig' %}
+
+{% block title %}Consulter offre{% endblock %}
+
+{% block body %}
+{{ parent()}}
+<main>
+        <!-- section hero recherche -->
+        <section class="hero-recherche-postul">
+          <div class="container">
+            <div class="row">
+              <div class="centrer-h-recherche col-12 col-sm-12 col-md-12 col-lg-6 pt-5">
+                <small class="text-muted">{{job.companyname}}</small>
+                <h2 class="card-title">{{job.missiontitle}}</h2>
+
+             </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- section resultats recherche -->
+        <section class="resultats-recherche color-title-resultats pt-4 pb-4">
+          <div class="container">
+            <div class="row d-flex-center">
+              <div class="title-section-postul col-12 col-sm-12 col-md-12 col-lg-8">
+                <h5>A propos</h5>
+                <div class="title-droit">
+                    <span><i class="fas fa-briefcase"></i>&nbsp; {{job.type}} - </span>
+                    <span><i class="far fa-clock"></i>&nbsp; {{job.date|date("m/d/Y")}} -</span>
+                    <span>Par<b> {{job.companyname}}</b></span>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+      </section>
+      <section class="resultats-recherche">
+          <div class="container">
+            <div class="row container-blocs-postuler">
+                <div class="container-postuler col-12 col-sm-12 col-md-12 col-lg-8">
+                
+                  <p>{{job.description}}
+                  </p>
+                </div> 
+                <div class="container-btn-postuler col-12 col-sm-12 col-md-12 col-lg-8">
+                    <a href="/connexion.html" class="mon-btn btn-connecter">Postuler</a>
+                </div> 
+            </div>
+        </div>
+      </section>
+
+        </main>
+{% endblock %}

@@ -44,8 +44,13 @@
                     <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
                         <div class="card ma-card-petite">
 							<img src="uploads/images/{{candidat.photo}}" alt="start-up 1" class="img-fluid">
+                            {% if candidat.openwork  == 1 %}
+                                <span>Disponible</span> 
+                            {% else %}
+                                <span class="indispo">En mission</span> 
+                            {% endif %}
                             <div class="card-body ma-card-body">
-                                <h5 class="card-title">{{candidat.name}}</h5>
+                                <h5 class="card-title">{{candidat.name}}</h5> 
                                 <p>{% for langue in candidat.langages %}
                                     {{langue}}
                                 {% endfor %}</p>
@@ -57,53 +62,6 @@
                  <div style="margin-left:200px; color:red;">
 	                {{ knp_pagination_render(candidats) }}
                 </div>
-
-                    {# <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
-                        <div class="card ma-card-petite">
-                            <img src="/assets/images/g1.jpg" alt="start-up 1" class="img-fluid">
-                            <div class="card-body ma-card-body">
-                                <h5 class="card-title">Lambert Émilie</h5>
-                                <h6 class="card-title-petite">Product Manager Junior - H/F</h6>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
-                        <div class="card ma-card-petite">
-                            <img src="/assets/images/g1.jpg" alt="start-up 1" class="img-fluid">
-                            <div class="card-body ma-card-body">
-                                <h5 class="card-title">Lambert Émilie</h5>
-                                <h6 class="card-title-petite">Product Manager Junior - H/F</h6>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
-                        <div class="card ma-card-petite">
-                            <img src="/assets/images/g1.jpg" alt="start-up 1" class="img-fluid">
-                            <div class="card-body ma-card-body">
-                                <h5 class="card-title">Lambert Émilie</h5>
-                                <h6 class="card-title-petite">Product Manager Junior - H/F</h6>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
-                        <div class="card ma-card-petite">
-                            <img src="/assets/images/g1.jpg" alt="start-up 1" class="img-fluid">
-                            <div class="card-body ma-card-body">
-                                <h5 class="card-title">Lambert Émilie</h5>
-                                <h6 class="card-title-petite">Product Manager Junior - H/F</h6>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12">
-                        <div class="card ma-card-petite">
-                            <img src="/assets/images/g1.jpg" alt="start-up 1" class="img-fluid">
-                            <div class="card-body ma-card-body">
-                                <h5 class="card-title">Lambert Émilie</h5>
-                                <h6 class="card-title-petite">Product Manager Junior - H/F</h6>
-                            </div>
-                        </div>
-                    </div> 
- #}
                 </div>
             </div>
         </section>

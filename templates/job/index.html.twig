@@ -4,6 +4,7 @@
 
 {% block body %}
 {{ parent() }}
+{# 
 <div>
     {{ form_start(form, {'attr': {'novalidate': 'novalidate','class' : 'p-t150'}})}}
     {{ form_row(form.missiontitle)}}
@@ -12,4 +13,43 @@
     {{ form_row(form.description)}}
     <button type="submit"> Envoyer</button>
     {{form_end(form)}} 
-{% endblock %}
+#}
+<!--- LE CONTENU PRINCIPAL -->
+    <main class=" mon-d-flex">
+        <!-- section inscription -->
+        <section class="inscription p-t150">
+            <div class="container">
+                <form class="formulaire-inscription row" method="POST">
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate','class' : 'p-t150'}})}}
+
+                    <p>
+                        <a class="navbar-brand" href="/"><img class="logo" src="assets/images/logo.svg" alt="Social network"></a> 
+                    </p>
+                    <h3 class="mb-4">Création d'une offre</h3>
+                    <div class="mb-3 col-md-6 col-12 col-sm-12">
+                        {{ form_row(form.missiontitle)}}
+                    </div>
+
+                    <div class="mb-3 col-md-6 col-12 col-sm-12">
+                        {{ form_row(form.type)}}
+                    </div>
+
+                    <div class="mb-3 col-12">
+                        {{ form_row(form.companyname)}}
+                    </div>
+
+    
+                    <div class="mb-3 col-12">
+                        {{ form_row(form.description)}}
+                    </div>
+
+                    <p class="container-envoye">
+                        <button type="submit" class="mon-btn btn-connecter"> Envoyer</button>
+                    </p>
+                    
+                </form>
+            </div>
+        </section>
+
+    </main>
+    {% endblock %} 
