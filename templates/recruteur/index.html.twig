@@ -3,22 +3,6 @@
 {% block title %}Hello RecruteurController!{% endblock %}
 
 {% block body %}
-{# <div class="container">
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
-    <div class="mb-3 col-md-6 col-12 col-sm-12">
-        {{ form_row(form.companyname)}}
-    </div>
-    <div class="mb-3 col-md-6 col-12 col-sm-12">
-      {{ form_row(form.contactname)}} 
-    </div>
-    <div class="mb-3 col-md-6 col-12 col-sm-12">
-    </div>
-    {{ form_row(form.description)}}
-    {{ form_row(form.contactemail)}}
-    {{ form_row(form.phonenumber)}}
-    <button type="submit"> Envoyer</button>
-    {{form_end(form)}}
-</div> #}
 {{ parent() }}
 <body>
  
@@ -57,26 +41,41 @@
                         <div class="mb-3 col-md-6 col-12 col-sm-12">
                             {{ form_row(form.contactemail)}}
                         </div>
-    
-                        <div class="mb-3 col-md-6 col-12 col-sm-12">
-                            {{ form_row(form.phonenumber)}}
-                        </div>
-    
-    
-                        <div class="mb-3 col-md-12 col-12 col-sm-12">
-                            {{ form_row(form.description)}}
-                        </div>
-    
-                        <p class="container-envoye">
-                            <a href="#"></a><button type="submit" class="btn mon-btn btn-connexion">Rejoins Little Genius</button></a>
-                        </p>
-						{{ form_end(form) }}
-                    </form>
-                </div>
+                        <ul>
+                            <li><a href="" active><i class="fas fa-home"></i>&nbsp; Accueil</a></li>
+                            <li><a href=""><i class="far fa-plus-square"></i>&nbsp; Créer une annonce</a></li>
+                            <li><a href=""><i class="fas fa-list-alt"></i>&nbsp; Toutes mes annonces</a></li>
+                            <li><a href=""><i class="fas fa-trash"></i>&nbsp; Supprimer</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-9 col-lg-9 droit-profil">
+                        <form class="formulaire-profil row" method="POST">
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
+                            <div class="mb-3 col-md-6 col-12 col-sm-12">
+                                {{ form_row(form.companyname)}}
+                            </div>
+                            <div class="mb-3 col-md-6 col-12 col-sm-12">
+                                {{ form_row(form.contactname)}} 
+                            </div>
+                            <div class="mb-3 col-md-6 col-12 col-sm-12">
+                                {{ form_row(form.contactemail)}}
+                            </div>
+                            <div class="mb-3 col-md-6 col-12 col-sm-12">
+                                {{ form_row(form.phonenumber)}}
+                            </div>
+                            <div class="mb-3 col-md-12 col-12 col-sm-12">
+                                {{ form_row(form.description)}}
+                            </div>
+                            <p class="container-envoye">
+                                <a href="#"></a><button type="submit" class="btn mon-btn btn-connexion">Rejoins Little Genius</button></a>
+                            </p>
+                            {{ form_end(form) }}
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
-        </main>
-        </body>
+    </main>
+</body>
 
 {% endblock %}

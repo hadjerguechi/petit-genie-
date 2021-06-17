@@ -1,174 +1,149 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home
-{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
-	{{ parent() }}
-	<main>
-		<!-- section hero -->
-		<section class="hero">
-			<div class="container">
-				<div class="row mon-d-flex-between">
-					<div class="gauche col-12 col-sm-12 col-md-12 col-lg-6">
-						<h1 class="main-titre">Trouvez l’emploi qui vous convient</h1>
-						<p class="text-hero">
-							Lorem ipsum dolor sit amet, consectetur 
-							                  Finis  de trouver un stage/une mission, Little genius vous 
-							                  facilite …
-						</p>
-
-						<div class="container-search">
-							<form class="d-flex col-12">
-								<input class="form-control me-2 form-resultats" type="search" placeholder="PHP, Vue.js, JavaScript,…" aria-label="Search">
-								<button class="btn mon-btn btn-lancer gestion-btn" type="submit">
-									<i class="mon-i fas fa-search"></i>
-									<span>&nbsp; Lance-toi !</span>
-								</button>
-							</form>
-						</div>
-
-						<div class="container-pastille">
-							<span class="span-langage">PHP</span>
-							<span class="span-langage">JAVASCRIPT</span>
-							<span class="span-langage">SYMFONY</span>
-							<span class="span-langage">VUE.JS</span>
-						</div>
-
-					</div>
-
-					<div class="droit col-12 col-sm-12 col-md-12 col-lg-6">
-						<img src="assets/images/dev-junior.jpg" alt="développeur juniors" class="img-responsive  image-dev-junior">
-					</div>
+{{ parent() }}
+<main>
+<!-- section hero -->
+<section class="hero">
+	<div class="container">
+		<div class="row mon-d-flex-between">
+			<div class="gauche col-12 col-sm-12 col-md-12 col-lg-6">
+				<h1 class="main-titre">Trouvez l’emploi qui vous convient</h1>
+				<p class="text-hero">
+					Fini l'enfer trouver un stage/une mission, Little genius a pour but de vous aider à faire vos premiers pas dans le monde du developpement. Nous référençons des offres d'emploi spécialement orientées junior !
+				</p>
+				<div class="container-search">
+					<form class="d-flex col-12">
+						<input class="form-control me-2 form-resultats" type="search" placeholder="PHP, Vue.js, JavaScript,…" aria-label="Search">
+						<button class="btn mon-btn btn-lancer gestion-btn" type="submit">
+							<i class="mon-i fas fa-search"></i>
+							<span>&nbsp; Lance-toi !</span>
+						</button>
+					</form>
+				</div>
+				<div class="container-pastille">
+					<span class="span-langage">PHP</span>
+					<span class="span-langage">JAVASCRIPT</span>
+					<span class="span-langage">SYMFONY</span>
+					<span class="span-langage">VUE.JS</span>
 				</div>
 			</div>
-		</section>
+			<div class="droit col-12 col-sm-12 col-md-12 col-lg-6">
+				<img src="assets/images/dev-junior.jpg" alt="développeur juniors" class="img-responsive  image-dev-junior">
+			</div>
+		</div>
+	</div>
+</section>
 
-		<!-- section explication -->
-		<section class="explication">
-			<div class="container">
-				<div class="row">
-					<div class="text-center title-section col-12 col-sm-12 col-md-12 col-lg-12">
-						<h2>Little genius vous facilite la vie</h2>
-						<p class="text-content col-5">
-							Lorem ipsum dolor sit amet, consectetur 
-							                  Finis  de trouver un stage/une mission, Little genius vous 
-							                  facilite
-						</p>
+<!-- section explication -->
+<section class="explication">
+	<div class="container">
+		<div class="row">
+			<div class="text-center title-section col-12 col-sm-12 col-md-12 col-lg-12">
+				<h2>Little genius vous facilite la vie</h2>
+				<p class="text-content col-5">
+					La procédure est très simple, il suffit de suivre 3 étapes. Un jeu d'enfant !
+				</p>
+			</div>
+		</div>
+		<div class="row container-blocs-explication g-5">
+			<div class="container-explication col-12 col-md-4 col-lg-4 col-sm-12">
+				<img src="/assets/images/ton-profil.svg" alt="start-up 1" class="img-fluid">
+				<h3>Crée ton profil</h3>
+				<p>
+					Tout d'abord, tu créé ton compte, puis rempli ton profil avec toutes les données nécessaires.
+				</p>
+			</div>
+			<div class="container-explication col-12 col-md-4 col-lg-4 col-sm-12">
+				<img src="/assets/images/comp-profil.svg" alt="start-up 1" class="img-fluid">
+				<h3>Navigue parmis les offres</h3>
+				<p>
+					Tu vas pouvoir trier les offres par mot clés afin de cibler le metier qui te convient. En attendant ton profil est en ligne et accessible aux recruteurs !
+				</p>
+			</div>
+			<div class="container-explication col-12 col-md-4 col-lg-4 col-sm-12">
+				<img src="/assets/images/post-profil.svg" alt="start-up 1" class="img-fluid">
+				<h3>Postule en 1 clic</h3>
+				<p>
+					Une offre te plait ? Rien de plus simple : clique sur postuler, et on s'occupe du reste ;)
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- section genius du mois -->
+<section class="genius-mois">
+	<div class="container">
+		<div class="row">
+			<div class="text-center title-section col-12">
+				<h2>Les genius du mois</h2>
+				<p class="text-content col-5">
+					Ils viennent de franchir le pas ! Alors n'hésite plus et inscrit toi
+				</p>
+			</div>
+		</div>
+		<div class="row container-blocs-genius-mois">
+			{% for candidat in candidats %}
+				<div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
+					<div class="blocs-genius-mois">
+						<img src="uploads/images/{{candidat.photo}}" alt="start-up 1" class="img-fluid">
 					</div>
+					<h3>{{candidat.name}}</h3>
 				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
 
-				<div class="row container-blocs-explication g-5">
-					<div class="container-explication col-12 col-md-4 col-lg-4 col-sm-12">
-						<img src="/assets/images/ton-profil.svg" alt="start-up 1" class="img-fluid">
-						<h3>Crée ton profil</h3>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur 
-							                  Finis  de trouver un stage/une mission, Little genius vous 
-							                  facilite
-						</p>
-					</div>
-					<div class="container-explication col-12 col-md-4 col-lg-4 col-sm-12">
-						<img src="/assets/images/comp-profil.svg" alt="start-up 1" class="img-fluid">
-						<h3>Complète ton profil</h3>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur 
-							                  Finis  de trouver un stage/une mission, Little genius vous 
-							                  facilite
-						</p>
-					</div>
-					<div class="container-explication col-12 col-md-4 col-lg-4 col-sm-12">
-						<img src="/assets/images/post-profil.svg" alt="start-up 1" class="img-fluid">
-						<h3>Postule en 1 clic</h3>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur 
-							                  Finis  de trouver un stage/une mission, Little genius vous 
-							                  facilite
-						</p>
-					</div>
+<!-- section rejoignez-nous -->
+<section class="rejoignez">
+	<div class="container">
+		<div class="row">
+			<div class="text-center title-section col-12">
+				<h2>Pourquoi Little genius ?</h2>
+				<p class="text-content col-12 col-sm-12 col-md-12 col-lg-5">
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="container-rejoignez col-12 col-sm-12 col-md-12 col-lg-6">
+				Dans ce monde ou les exigences dépassent le rationnel LG a pour but de valoriser les compétences, les jeunes talents et surtout de mettre 
+				en avant les génies fraîchement diplômés, qualifiés mais surtout vraiment motivés de partager leur compétences et apprendre sur le terrain.
+				LG met en relation ses futurs génies avec des chasseurs de tête, des entreprises qui ont connaissance de leurs besoins en termes de compétences concrètes 
+				et surtout qui savent qu'en intégrant des jeunes talents dans leurs aventure c’est la force de développer des futurs génies.
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- section Inscris-toi -->
+<section class="explication">
+	<div class="container">
+		<div class="row">
+			<div class="text-center title-section col-12">
+				<h2>Abonne-toi en 1 clic</h2><br>
+				<p class="text-content col-5">
+					Reçois deux fois par semaines des conseils pratiques pour augmenter tes chances de décrocher ton job
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="container-abonne col-12 col-sm-12 col-md-12 col-lg-6">
+				<div class="container-search">
+					<form class="d-flex col-12">
+						<input type="email" class="form-control form-resultats" id="exampleFormControlInput1" placeholder="genius@example.com">
+						<button class="btn mon-btn btn-lancer gestion-btn" type="submit">
+							<i class="far mon-i fa-envelope"></i>
+							<span>&nbsp; Abonne-toi !</span>
+						</button>
+					</form>
 				</div>
 			</div>
-		</section>
-
-		<!-- section genius du mois -->
-		<section class="genius-mois">
-			<div class="container">
-				<div class="row">
-					<div class="text-center title-section col-12">
-						<h2>Les genius du mois</h2>
-						<p class="text-content col-5">
-							Lorem ipsum dolor sit amet, consectetur 
-							                  Finis  de trouver un stage/une mission, Little genius vous 
-							                  facilite
-						</p>
-					</div>
-				</div>
-				<div class="row container-blocs-genius-mois">
-                    {% for candidat in candidats %}
-                        <div class="sous-genius h-100 col-12 col-sm-12 col-md-12 col-lg-2">
-                            <div class="blocs-genius-mois">
-							    <img src="uploads/images/{{candidat.photo}}" alt="start-up 1" class="img-fluid">
-                            </div>
-                            <h3>{{candidat.name}}</h3>
-                        </div>
-                    {% endfor %}
-				</div>
-			</div>
-		</section>
-
-		<!-- section rejoignez-nous -->
-		<section class="rejoignez">
-			<div class="container">
-				<div class="row">
-					<div class="text-center title-section col-12">
-						<h2>Pourquoi Little genius ?</h2>
-						<p class="text-content col-12 col-sm-12 col-md-12 col-lg-5">
-							Lorem ipsum dolor sit amet, consectetur 
-							                  Finis  de trouver un stage/une mission, Little genius vous 
-							                  facilite
-						</p>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="container-rejoignez col-12 col-sm-12 col-md-12 col-lg-6"></div>
-
-				</div>
-			</div>
-		</section>
-
-		<!-- section Inscris-toi -->
-		<section class="explication">
-			<div class="container">
-				<div class="row">
-					<div class="text-center title-section col-12">
-						<h2>Abonne-toi en 1 clic
-						</h2>
-						<p class="text-content col-5">
-							Reçois deux fois par semaines des conseils pratiques pour augmenter ta chance et décroche ton job
-						</p>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="container-abonne col-12 col-sm-12 col-md-12 col-lg-6">
-						<div class="container-search">
-							<form class="d-flex col-12">
-								<input type="email" class="form-control form-resultats" id="exampleFormControlInput1" placeholder="genius@example.com">
-								<button class="btn mon-btn btn-lancer gestion-btn" type="submit">
-									<i class="far mon-i fa-envelope"></i>
-									<span>&nbsp; Abonne-toi !</span>
-								</button>
-							</form>
-						</div>
-					</div>
-
-				</div>
-
-			</section>
-
-		</main>
-
-		<!--LE FOOTER-->
-	{% endblock %}
+		</div>
+	</section>
+</main>
+{% endblock %}
 
