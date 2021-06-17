@@ -227,6 +227,29 @@ p.text-content{
 a{
     text-decoration: none;
 }
+/*--------------------- 404 -------------------------*/
+
+.container-404 h3{
+    margin-top: 50px; 
+}
+.container-img-404{
+    max-width: 45rem;
+}
+.img-404{
+    width: auto;
+    height: auto;
+    margin: auto;
+    max-width: 100%;
+}
+.container-img-404 img{
+    width: 100%;
+}
+.d-flex-colum{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+}
 
 /*------------- HEADER ---------------*/
 #navbar{
@@ -283,8 +306,12 @@ a{
 }
 /*--------- Fin menu --------------*/
 
-
-
+.resultats-recherche h5{
+    color: var(--black-color);
+}
+.resultats-recherche a {
+    text-decoration: none;
+}
 .btn-recruteur{
     color: var(--black-color);
     background-color: transparent;
