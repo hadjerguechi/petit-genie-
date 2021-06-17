@@ -13,6 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=CandidatRepository::class)
+ * @ORM\Table(name="candidat", indexes={@ORM\Index(columns={"name","firstname"}, flags={"fulltext"})})
  */
 class Candidat
 {
