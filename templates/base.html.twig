@@ -26,7 +26,13 @@
             $('nav').toggleClass('opening');
             $(this).toggleClass('nav');
             })
-        </script>
+             window.onload = () =>{
+             document.querySelector('#contact_title').value="{{job.missiontitle|raw }}"
+
+             }
+        
+            </script>
+
         {% endblock %} 
         </head>
         {% block body %}
