@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use Knp\Component\Pager\PaginatorInterface;
 use App\Entity\Candidat;
+use App\Form\SearchJobType;
 use App\Repository\CandidatRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
