@@ -17,46 +17,48 @@ class CandidatType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, ['attr'=>['placeholder' => 'Ton nom']])
-            -> add('firstname', TextType::class, ['attr' => ['placeholder' => 'Ton prénom']] )
-            
-            ->add('tel', TextType::class, ['attr'=>['placeholder' => '0234...']])
-            ->add('experience', ChoiceType::
-            class,   ['label' => "Experience professionnelle",
-            'placeholder' => "indique ton expérience",
-            'choices' => Candidat::EXPERIENCE,])
-            ->add('photofile',FileType::class , ['label' => "Une petite photo" , 'label_attr' => [
-            'data-browse' => 'Parcourir'
-            ],
-            'mapped' => false,
-            'attr' => [
-                'class' => 'form-control',
-            ]
-            // 'constraints' => [
-            //     new File([
-            //         //'maxSize' => '1024k',
-            //         'mimeTypes' => [
-                        
-            //             'application/jpg',
-            //             'application/png',
-            //         ],
-            //         'mimeTypesMessage' => 'Le format invalide',
-            //     ])
-            //     ],
+            ->add('name', TextType::class, ['attr' => ['placeholder' => 'Ton nom']])
+            ->add('firstname', TextType::class, ['attr' => ['placeholder' => 'Ton prénom']])
+
+            ->add('tel', TextType::class, ['attr' => ['placeholder' => '0234...']])
+            ->add('experience', ChoiceType::class,   [
+                'label' => "Experience professionnelle",
+                'placeholder' => "indique ton expérience",
+                'required' => true,
+                'choices' => Candidat::EXPERIENCE,
             ])
-            ->add('address', TextType::class,['attr' => [
+            ->add('photofile', FileType::class, [
+                'label' => "Une petite photo", 'label_attr' => [
+                    'data-browse' => 'Parcourir'
+                ],
+                'mapped' => false,
+                'attr' => [
+                    'class' => 'form-control',
+                ]
+                // 'constraints' => [
+                //     new File([
+                //         //'maxSize' => '1024k',
+                //         'mimeTypes' => [
+
+                //             'application/jpg',
+                //             'application/png',
+                //         ],
+                //         'mimeTypesMessage' => 'Le format invalide',
+                //     ])
+                //     ],
+            ])
+            ->add('address', TextType::class, ['attr' => [
                 'class' => 'form-control',
             ]])
-            ->add('openwork', CheckboxType::class,['label' => "À l'écoute du marché"]) 
+            ->add('openwork', CheckboxType::class, ['label' => "À l'écoute du marché"])
             ->add('langages', ChoiceType::class, [
                 'placeholder' => 'tu sais parler quoi ?',
-                'choices'=> Candidat::LANGAGES,
-                'multiple'=>true,
-            'attr' => [
-                'class' => 'form-select',]
-        ])
-           
-        ;
+                'choices' => Candidat::LANGAGES,
+                'multiple' => true,
+                'attr' => [
+                    'class' => 'form-select',
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
