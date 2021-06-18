@@ -18,7 +18,7 @@ class SearchJobType extends AbstractType
                  'required'   => true,
                    'attr'=> [
                      'class'=> 'form-control',
-                    'placeholder'=> "PHP, Vue.js, JavaScript,…",
+                    'placeholder'=> "Entrer un mot clé",
                 // 'minlength' => 4
                 ]
             ])
