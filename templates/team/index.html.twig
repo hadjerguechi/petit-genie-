@@ -1,92 +1,90 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TeamController!{% endblock %}
+{% block title %}L'équipe
+{% endblock %}
 
 {% block body %}
-{{ parent() }}
-<main>
-    <!-- section l'équipe -->
-        <section class="team">
-            <div class="container">
-                <div class="row">
-                    <div class="text-center title-section col-12 col-sm-12 col-md-12 col-lg-12">
-                        <h2 class="mb-3">L'équipe de Little Genius</h2>
-                        <hr>
-                        <!--- <h3 class="mt-3">
-                            Qui sommes-nous ?                   
-                        </h3> -->
-                    </div>
-                </div>
+	{{ parent() }}
+	<main>
+		<!-- section l'équipe -->
+		<section class="team">
+			<div class="container">
+				<div class="row">
+					<div class="text-center title-section col-12 col-sm-12 col-md-12 col-lg-12">
+						<h2 class="mb-3">L'équipe de Little Genius</h2>
+						<hr>
+					</div>
+				</div>
 
-                <div class="row container-blocs-team g-5">
-                    
-                    <div class="containers-blocs-team col-12 col-md-4 col-lg-3 col-sm-12">
-                        <img src="/assets/images/g2.jpeg" alt="soso" class="img-team">
-                        <h3>Sonia</h3>
-                        <p>
-                            La troll des bois
-                        </p>
-                        <a href=""><button class="btn btn-connexion" type="submit"></i>&nbsp; En Savoir Plus !</button></a>
+				<div class="row container-blocs-team g-5">
 
-                    </div>
+					<div class="containers-blocs-team col-12 col-md-4 col-lg-3 col-sm-12">
+						<img src="/assets/images/g2.jpeg" alt="soso" class="img-team">
+						<h3>Sonia</h3>
+						<p>
+							La troll des bois
+						</p>
+						<a href="">
+							<button class="btn btn-connexion" type="submit"></i>&nbsp; En Savoir Plus !</button>
+					</a>
 
-                    <div class="containers-blocs-team col-12 col-md-4 col-lg-3 col-sm-12">
-                        <img src="/assets/images/g3.jpeg" alt="soso" class="img-team">
-                        <h3>Hadjer</h3>
-                        <p>
-                            La troll des bois
-                        </p>
-                        <a href=""><button class="btn btn-connexion" type="submit"></i>&nbsp; En Savoir Plus !</button></a>
+				</div>
 
-                    </div> 
+				<div class="containers-blocs-team col-12 col-md-4 col-lg-3 col-sm-12">
+					<img src="/assets/images/g3.jpeg" alt="soso" class="img-team">
+					<h3>Hadjer</h3>
+					<p>
+						La troll des bois
+					</p>
+					<a href="">
+						<button class="btn btn-connexion" type="submit"></i>&nbsp; En Savoir Plus !</button>
+				</a>
 
-                    <div class="containers-blocs-team col-12 col-md-4 col-lg-3 col-sm-12">
-                        <img src="/assets/images/g4.jpeg" alt="soso" class="img-team">
-                        <h3>Ibrahim</h3>
-                        <p>
-                            La troll des bois
-                        </p>
-                        <a href=""><button class="btn btn-connexion" type="submit"></i>&nbsp; En Savoir Plus !</button></a>
-                    </div> 
+			</div>
 
-                    <div class="containers-blocs-team col-12 col-md-4 col-lg-3 col-sm-12">
-                        <img src="/assets/images/g5.jpeg" alt="soso" class="img-team">
-                        <h3>Geoffrey</h3>
-                        <p>
-                            La troll des bois
-                        </p>
-                        <a href=""><button class="btn btn-connexion" type="submit"></i>&nbsp; En Savoir Plus !</button></a>
-                    </div> 
-                </div> 
-            </div>
+			<div class="containers-blocs-team col-12 col-md-4 col-lg-3 col-sm-12">
+				<img src="/assets/images/g4.jpeg" alt="soso" class="img-team">
+				<h3>Ibrahim</h3>
+				<p>
+					La troll des bois
+				</p>
+				<a href="">
+					<button class="btn btn-connexion" type="submit"></i>&nbsp; En Savoir Plus !</button>
+			</a>
+		</div>
 
-        </section>
-         <section class="container-team-text pt-0 container"> 
-           <h2>Qui se cache derrière Little Genius </h2>
-           <hr>
-        <div class="container-team col-12">
-            <div class="container-pics col-12 col-md-12 col-lg-4 col-sm-12">
-                <img src="/assets/images/ton-profil.svg" alt="start-up 1" class="logo-team">
-                <img src="/assets/images/webforce3.png" class="logo-wf3">
-            </div>
-            <div class="col-12 col-md-12 col-lg-8 col-sm-12">
-                <p class="team-text">
-                    Quatre profils venus de champs tous différents les uns des autres, se sont unis ensemble pour réaliser <b>Little Genius</b>.
-                    C'est durant leur formation d'apprentis Web Dev' que la Team LG a eu l'idée de Genie de créer un site d'emploi 
-                    qui facilite l'insertion des jeunes talents. 
-                    En quête d'un stage pour valider leur formations ils se sont vite rendus compte  
-                    des exigences <b>délirantes</b> du marché du travail.
-                    Si ce n'est pas des centaines d'années d'expériences exigés 
-                    ou des diplômes divers et variés de grandes écoles.
-                    <i>La Team LG en a vue des vertes et des pas mûres !</i>
-            
-                    De là ils se sont dit : "Et pourquoi pas créer un site pour valoriser les compétences, 
-                    mettre en avant des génies par leur experiences, leurs acquis, plutôt que par leur background"
-                    En même temps ce site sera un poil plus complexe et M.Chevalier devrait apprécier comme il se doit ;-)
-                    C'est ainsi que Little Genius a vu le jour. 
-                </p>
-            </div>
-        </div>
-        </section>
-</main>
-{% endblock %}
+		<div class="containers-blocs-team col-12 col-md-4 col-lg-3 col-sm-12">
+			<img src="/assets/images/g5.jpeg" alt="soso" class="img-team">
+			<h3>Geoffrey</h3>
+			<p>
+				La troll des bois
+			</p>
+			<a href="">
+				<button class="btn btn-connexion" type="submit"></i>&nbsp; En Savoir Plus !</button>
+		</a>
+	</div>
+</div></div></section><section class="container-team-text pt-0 container"><h2>Qui se cache derrière Little Genius</h2><hr><div class="container-team col-12">
+<div class="container-pics col-12 col-md-12 col-lg-4 col-sm-12">
+	<img src="/assets/images/ton-profil.svg" alt="start-up 1" class="logo-team">
+	<img src="/assets/images/webforce3.png" class="logo-wf3">
+</div>
+<div class="col-12 col-md-12 col-lg-8 col-sm-12">
+	<p class="team-text">
+		Quatre profils venus de champs tous différents les uns des autres, se sont unis ensemble pour réaliser
+		<b>Little Genius</b>.
+						                    C'est durant leur formation d'apprentis Web Dev' que la Team LG a eu l'idée de Genie de créer un site d'emploi 
+						                    qui facilite l'insertion des jeunes talents. 
+						                    En quête d'un stage pour valider leur formations ils se sont vite rendus compte  
+						                    des exigences
+		<b>délirantes</b>
+		du marché du travail.
+				                    Si ce n'est pas des centaines d'années d'expériences exigés 
+				                    ou des diplômes divers et variés de grandes écoles.
+		<i>La Team LG en a vue des vertes et des pas mûres !</i>
+
+		De là ils se sont dit : "Et pourquoi pas créer un site pour valoriser les compétences, 
+				                    mettre en avant des génies par leur experiences, leurs acquis, plutôt que par leur background"
+				                    En même temps ce site sera un poil plus complexe et M.Chevalier devrait apprécier comme il se doit ;-)
+				                    C'est ainsi que Little Genius a vu le jour.
+	</p>
+</div></div></section></main>{% endblock %}
