@@ -1,14 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Consulter offre{% endblock %}
-{# {% block javascripts %}
-<script>
-window.onload = () =>{
-document.querySelector('#contact_title').value="{{job.missiontitle}}"
 
-             }
+{% block javascripts %}
+{{parent()}}
+<script>
+	window.onload = () => {
+    document.querySelector('#contact_title').value =  "{{ job.missiontitle|raw }}"
+  }
 </script>
-{% endblock %} #}
+{% endblock %}
+
 {% block body %}
 {{ parent()}}
 
@@ -53,7 +55,7 @@ document.querySelector('#contact_title').value="{{job.missiontitle}}"
                 <div class="container-btn-postuler col-12 col-sm-12 col-md-12 col-lg-8">
            {# <button class="mon-btn btn-connecter" data-toggle="modal" data-target="#myModal">Postuler</button> #}
            <button type="button" class="mon-btn btn-connecter" data-bs-toggle="modal" data-bs-target="#myModal">  
-           Postuler
+            Postuler
            </button> 
 
 
@@ -88,7 +90,13 @@ document.querySelector('#contact_title').value="{{job.missiontitle}}"
     {{ form_end(form)}}
 	</div>
 </div>
+<div style="margin-top:50px;">
+	{% for message in app.flashes('message') %}
+		<div class="alert alert-success" role="alert">
 
+			{{ message }}
+		</div>
+{% endfor %}
 
         </main>
 {% endblock %}

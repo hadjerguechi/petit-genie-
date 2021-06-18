@@ -64,7 +64,7 @@ class JobController extends AbstractController
         ]);
         $mailer->send($email);
         $this->addFlash('message', 'Votre e-mail a bien été envoyé ');
-        return $this->redirectToRoute("offre-read");
+        // return $this->redirectToRoute("");
     }
     return $this->render("job/annonce.html.twig", [
       "job"=>$job ,

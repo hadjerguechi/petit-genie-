@@ -19,8 +19,9 @@
         <!-- section inscription -->
         <section class="inscription p-t150">
             <div class="container">
-                <form class="formulaire-inscription row" method="POST">
-                    {{ form_start(form, {'attr': {'novalidate': 'novalidate','class' : 'p-t150'}})}}
+                {# <form class="formulaire-inscription row" method="POST"> #}
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate','class' : 'formulaire-inscription row'}})}}
+
 
                     <p>
                         <a class="navbar-brand" href="/"><img class="logo" src="assets/images/logo.svg" alt="Social network"></a> 
@@ -45,9 +46,11 @@
 
                     <p class="container-envoye">
                         <button type="submit" class="mon-btn btn-connecter"> Envoyer</button>
+                        
                     </p>
+                    {{form_end(form)}}
                     
-                </form>
+                {# </form> #}
             </div>
         </section>
 
