@@ -2,8 +2,18 @@
 
 {% block title %}Consulter offre{% endblock %}
 
+{% block javascripts %}
+{{parent()}}
+<script>
+	window.onload = () => {
+    document.querySelector('#contact_title').value =  "{{ job.missiontitle|raw }}"
+  }
+</script>
+{% endblock %}
+
 {% block body %}
 {{ parent()}}
+
 <main>
         <!-- section hero recherche -->
         <section class="hero-recherche-postul">
@@ -43,11 +53,53 @@
                   </p>
                 </div> 
                 <div class="container-btn-postuler col-12 col-sm-12 col-md-12 col-lg-8">
-                    <a href="/connexion.html" class="mon-btn btn-connecter">Postuler</a>
+           {# <button class="mon-btn btn-connecter" data-toggle="modal" data-target="#myModal">Postuler</button> #}
+           <button type="button" class="mon-btn btn-connecter" data-bs-toggle="modal" data-bs-target="#myModal">  
+            Postuler
+           </button> 
+
+
                 </div> 
             </div>
         </div>
       </section>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div  style="margin-top:80px ; "class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Contacter recruteur</h5>
+     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+     	<i class="fas fa-times"></i>  </button>
+			</div>
+      {{ form_start(form)}}
+			<div class="modal-body">
+				{{ form_widget(form.title)}}
+        {{ form_row(form.email)}}
+        {{ form_row(form.message)}}
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+				<button type="submit" class="btn btn-primary">Envoyer</button>
+			</div>
+		</div>
+    {{ form_end(form)}}
+	</div>
+</div>
+<div style="margin-top:50px;">
+	{% for message in app.flashes('message') %}
+		<div class="alert alert-success" role="alert">
+
+			{{ message }}
+		</div>
+{% endfor %}
 
         </main>
 {% endblock %}
+
+
+

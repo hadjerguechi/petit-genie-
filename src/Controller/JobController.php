@@ -4,14 +4,19 @@ namespace App\Controller;
 
 use App\Entity\Job;
 use App\Entity\JobSearch;
+use App\Form\ContactType;
 use App\form\JobSearchType;
 use App\Form\JobType;
 use App\Repository\JobRepository;
+use App\Repository\RecruteurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Mailer\MailerInterface;
 
 class JobController extends AbstractController
 {
@@ -34,10 +39,36 @@ class JobController extends AbstractController
   /**
    *@Route("/offre/read/{id}", name="offre-read")
    */
-   public function readJob(Job $job):Response{
-    
+   public function readJob(Job $job , Request $request, MailerInterface $mailer , RecruteurRepository $repositoryrecruteur):Response
+   {
+    if(! $job){
+      throw new NotFoundHttpException('Pas d\'annonce trouvée');
+
+    }
+   $idrec= $job->getIdRecruteur();
+    $recruteur= $repositoryrecruteur->findOneBy(['id'=> $idrec]);
+    $form =  $this->createForm(ContactType::class);
+    $contact = $form->handleRequest($request);
+   
+    if($form->isSubmitted() && $form->isValid())
+    {
+      $email= (new TemplatedEmail())
+        ->from($contact->get('email')->getData())
+        ->to($recruteur->getContactemail())
+        ->subject('Contact au sujet de votre offre"' . $job->getMissiontitle() . '"')
+        ->htmlTemplate('emails/contact_job.html.twig')
+        ->context([
+          'job'=> $job,
+           'mail'=> $contact->get('email')->getData(),
+           'message'=> $contact->get('message')->getData()
+        ]);
+        $mailer->send($email);
+        $this->addFlash('message', 'Votre e-mail a bien été envoyé ');
+        // return $this->redirectToRoute("");
+    }
     return $this->render("job/annonce.html.twig", [
-      "job"=>$job ]);
+      "job"=>$job ,
+      "form" => $form->createView()]);
    }
   
 
