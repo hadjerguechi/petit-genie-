@@ -3,38 +3,34 @@
 {% block body %}
 	{{ parent()}}
 	<div class="container p-t150"></div>
-    {% if annonces == NULL %}
-        <h3>Aucunes annonces en ligne.</h3>
-    {% endif %}
-	{% for annonce in annonces %}
-		<div class="row container-blocs-resultats">
+	{% if annonces == NULL %}
+		<h3>Aucunes annonces en ligne.</h3>
+	{% endif %}
+	<div class="row container-blocs-resultats">
+		{% for annonce in annonces %}
 			<div class="container-resultats col-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="card mb-5 ma-card">
-					<div class="row g-0">
-						<div class="col-md-8">
-							<div class="card-body ma-card-body">
-								<ul>
-									<span>
-										<small class="text-muted">{{annonce.companyname}}</small>
-									</span>
-									<h5 class="card-title">{{annonce.missiontitle}}</h5>
-									<li class="card-text">
-										<small class="text-muted">
-											<i class="fas fa-briefcase"></i>&nbsp;
-											{{annonce.type}}</small>
-									</li>
-									<li class="card-text">
-										<small class="text-muted">
-											<i class="far fa-clock"></i>&nbsp; Mise en ligne le :
-											{{annonce.date|date("m/d/Y")}}</small>
-									</li>
-								</ul>
-                              <a href="/job/delete/{{annonce.id}}">Supprimer annonce</a>
-							</div>
-						</div>
+				<div class="col-md-8">
+					<div class="card-body border m-2 ma-card-body">
+						<ul>
+							<span>
+								<small class="text-muted">{{annonce.companyname}}</small>
+							</span>
+							<h5 class="card-title">{{annonce.missiontitle}}</h5>
+							<li class="card-text">
+								<small class="text-muted">
+									<i class="fas fa-briefcase"></i>&nbsp;
+									{{annonce.type}}</small>
+							</li>
+							<li class="card-text">
+								<small class="text-muted">
+									<i class="far fa-clock"></i>&nbsp; Mise en ligne le :
+									{{annonce.date|date("m/d/Y")}}</small>
+							</li>
+						</ul>
+						<a href="/job/delete/{{annonce.id}}">Supprimer annonce</a>
 					</div>
 				</div>
 			</div>
-		</div>
-	{% endfor %}
+		{% endfor %}
+	</div>
 </div>{% endblock %}

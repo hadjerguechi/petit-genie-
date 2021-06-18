@@ -1,70 +1,80 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos Genius{% endblock %}
+{% block title %}Nos Genius
+{% endblock %}
 
 {% block body %}
-<body>
-    {{ parent() }}
-    <main>
-        <section class="hero-recherche">
-          <div class="container">
-            <div class="row">
-              <div class="centrer-h-recherche col-12 col-sm-12 col-md-12 col-lg-6">
-                <h2>Allez genius !<br> Trouve ta <span>chance</span> ici</h2>
-                <div class="container-search">
-                  {# <form class="d-flex col-12"> #}
-             {{ form_start(form,{'attr': {'class':"d-flex col-12" }})}}
+	<body>
+		{{ parent() }}
+		<main>
+			<section class="hero-recherche">
+				<div class="container">
+					<div class="row">
+						<div class="centrer-h-recherche col-12 col-sm-12 col-md-12 col-lg-6">
+							<h2>Allez genius !<br>
+								Trouve ta
+								<span>chance</span>
+								ici</h2>
+							<div
+								class="container-search">
+								{# <form class="d-flex col-12"> #}
+								{{ form_start(form,{'attr': {'class':"d-flex col-12" }})}}
 
-          {{ form_widget(form.mots,{'attr': {'class':' me-2 ' , 'minlength' : 2}}) }}
+								{{ form_widget(form.mots,{'attr': {'class':' me-2 ' , 'minlength' : 2}}) }}
 
-                    {# <input class="form-control me-2 form-resultats" type="search" placeholder="PHP, Vue.js, JavaScript,…" aria-label="Search"> #}
-                    <button class="btn mon-btn btn-lancer gestion-btn" type="submit"><i class="mon-i fas fa-search"></i><span>&nbsp; Lance-toi !</span></button>
-                 {{ form_end(form) }}
+								{# <input class="form-control me-2 form-resultats" type="search" placeholder="PHP, Vue.js, JavaScript,…" aria-label="Search"> #}
+								<button class="btn mon-btn btn-lancer gestion-btn" type="submit">
+									<i class="mon-i fas fa-search"></i>
+									<span>&nbsp; Lance-toi !</span>
+								</button>
+								{{ form_end(form) }}
 
-                  {# </form> #}
-                </div>
-             </div>
-            </div>
-          </div>
-        </section>
-        <!-- section resultats recherche -->
-        <section class="resultats-recherche color-title-resultats  pt-4 pb-4">
-            <div class="container">
-              <div class="row">
-                <div class="title-section-recherche col-12 col-sm-12 col-md-12 col-lg-12">
-                <h5>Nombre total de la recherche ({{ candidats.getTotalItemCount }})</h5>
-                </div>
-              </div>
-            </div>
-        </section>
-        <section class="resultats-recherche">
-            <div class="container">
-                <div class="row container-blocs-resultats g-5">
-                {% for candidat in candidats %}
-                    <div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12 mb-3">
-                        <div class="card ma-card-petite">
-							<img src="uploads/images/{{candidat.photo}}" alt="start-up 1" class="img-fluid">
-                            {% if candidat.openwork  == 1 %}
-                                <span>Disponible</span> 
-                            {% else %}
-                                <span class="indispo">En mission</span> 
-                            {% endif %}
-                            <div class="card-body ma-card-body">
-                                <h5 class="card-title">{{candidat.name}}</h5> 
-                                <p>{% for langue in candidat.langages %}
-                                    {{langue}}
-                                {% endfor %}</p>
+								{# </form> #}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- section resultats recherche -->
+			<section class="resultats-recherche color-title-resultats  pt-4 pb-4">
+				<div class="container">
+					<div class="row">
+						<div class="title-section-recherche col-12 col-sm-12 col-md-12 col-lg-12">
+							<h5>Nombre total de la recherche ({{ candidats.getTotalItemCount }})</h5>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="resultats-recherche">
+				<div class="container">
+					<div class="row container-blocs-resultats g-5">
+						{% for candidat in candidats %}
+							<div class="container-resultats col-12 col-md-4 col-lg-4 col-sm-12 mb-3">
+								<div class="card ma-card-petite">
+									<img src="uploads/images/{{candidat.photo}}" alt="start-up 1" class="img-fluid">
+									{% if candidat.openwork  == 1 %}
+										<span>Disponible</span>
+									{% else %}
+										<span class="indispo">En mission</span>
+									{% endif %}
+									<div class="card-body ma-card-body">
+										<h5 class="card-title">{{candidat.name}}</h5>
+										<p>
+											{% for langue in candidat.langages %}
+												{{langue}}
+											{% endfor %}
+										</p>
 
-                            </div>
-                        </div>
-                    </div> 
-                {% endfor %}
-                </div>
-                 <div style="margin-left:200px; color:red;">
-	                {{ knp_pagination_render(candidats) }}
-                </div>
-            </div>
-        </section>
-    </main>
-</body>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+					<div style="divpagination">
+						{{ knp_pagination_render(candidats) }}
+					</div>
+				</div>
+			</section>
+		</main>
+	</body>
 {% endblock %}

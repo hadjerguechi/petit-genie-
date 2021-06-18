@@ -493,8 +493,6 @@ h1 span{
     border-bottom-right-radius: 30px;
 }
 .droit-profil{
-    padding: 30px;
-   
 }
 .container-img-profil{
     max-width: 10rem;
@@ -1826,7 +1824,7 @@ ul.nav
         flex-direction: column;
     }
     .side-profil{
-        height: auto;
+        height: 100%;
         width: 100%;
         border-top-left-radius: var(--border-radius-main);
         border-top-right-radius: var(--border-radius-main);
